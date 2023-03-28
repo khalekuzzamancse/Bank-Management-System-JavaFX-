@@ -6,8 +6,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 
 public class AddAccountScreen {
@@ -29,10 +35,16 @@ public class AddAccountScreen {
     private TextField nomineeRelationshipTextField;
     private Button addButton;
 
+    private FileChooser fileChooser;
+    private ImageView customerImageView;
+    private ImageView nomineeImageView;
+    private ImageView customerSignatureImageView;
+    private ImageView nomineeSignatureImageView;
+    private Stage stage;
 
-    public AddAccountScreen() throws IOException {
+    public AddAccountScreen(Stage stage) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/layout/add_account_layout.fxml"));
-
+        this.stage = stage;
         loader.setController(this);
         Parent root;
         root = loader.load();
@@ -97,6 +109,68 @@ public class AddAccountScreen {
         weightTextField = (TextField) scene.lookup("#weightTextField");
         firmTextField = (TextField) scene.lookup("#firmTextField");
         nomineeNameTextField = (TextField) scene.lookup("#nomineeNameTextField");
+
+        //
+        nomineeImageView = (ImageView) scene.lookup("#nomineeImageView");
+        nomineeImageView.setOnMouseClicked(this::onNomineeImageSelected);
+        customerImageView = (ImageView) scene.lookup("#customerImageView");
+        customerImageView.setOnMouseClicked(this::onCustomerImageSelected);
+        customerSignatureImageView = (ImageView) scene.lookup("#customerSignatureImageView");
+        nomineeSignatureImageView = (ImageView) scene.lookup("#nomineeSignatureImageView");
+        customerSignatureImageView.setOnMouseClicked(this::onCustomerSignetureImageSelected);
+        nomineeSignatureImageView.setOnMouseClicked(this::onNomineeSignetureImageSelected);
+
+
+        //
+        fileChooser = new FileChooser();
+        fileChooser.setTitle("Open Image File");
+    }
+
+    private void onNomineeSignetureImageSelected(MouseEvent mouseEvent) {
+        FileChooser.ExtensionFilter imageFilter =
+                new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.jpeg", "*.png", "*.gif");
+        fileChooser.getExtensionFilters().add(imageFilter);
+        File selectedFile = fileChooser.showOpenDialog(stage);
+        if (selectedFile != null) {
+            Image image = new Image(selectedFile.toURI().toString());
+            nomineeSignatureImageView.setImage(image);
+        }
+    }
+
+    private void onCustomerSignetureImageSelected(MouseEvent mouseEvent) {
+        FileChooser.ExtensionFilter imageFilter =
+                new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.jpeg", "*.png", "*.gif");
+        fileChooser.getExtensionFilters().add(imageFilter);
+        File selectedFile = fileChooser.showOpenDialog(stage);
+        if (selectedFile != null) {
+            Image image = new Image(selectedFile.toURI().toString());
+            customerSignatureImageView.setImage(image);
+        }
+
+    }
+
+
+    //    Stage stage = (Stage) chooseButton.getScene().getWindow();
+    private void onCustomerImageSelected(MouseEvent event) {
+        FileChooser.ExtensionFilter imageFilter =
+                new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.jpeg", "*.png", "*.gif");
+        fileChooser.getExtensionFilters().add(imageFilter);
+        File selectedFile = fileChooser.showOpenDialog(stage);
+        if (selectedFile != null) {
+            Image image = new Image(selectedFile.toURI().toString());
+            customerImageView.setImage(image);
+        }
+    }
+
+    private void onNomineeImageSelected(MouseEvent event) {
+        FileChooser.ExtensionFilter imageFilter =
+                new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.jpeg", "*.png", "*.gif");
+        fileChooser.getExtensionFilters().add(imageFilter);
+        File selectedFile = fileChooser.showOpenDialog(stage);
+        if (selectedFile != null) {
+            Image image = new Image(selectedFile.toURI().toString());
+            nomineeImageView.setImage(image);
+        }
     }
 
     public Scene getScene() {

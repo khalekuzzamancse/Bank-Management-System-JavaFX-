@@ -29,7 +29,7 @@ public class HelloApplication extends Application {
         stage.setMinHeight(300);
 
         //stage.setScene(new LoginScreen().getScene());
-        stage.setScene(new AddAccountScreen().getScene());
+        stage.setScene(new AddAccountScreen(stage).getScene());
         stage.sizeToScene();
         stage.show();
     }
