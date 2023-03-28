@@ -27,7 +27,7 @@ public class HelloApplication extends Application {
         // prevent the user from resizing the window
         stage.setMinWidth(400);
         stage.setMinHeight(300);
-        //
+
         stage.setScene(new LoginScreen().getScene());
         stage.sizeToScene();
         stage.show();

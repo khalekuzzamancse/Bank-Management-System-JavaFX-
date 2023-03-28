@@ -1,4 +1,54 @@
+
+/* Set background image for the container */
+#parent {
+   -fx-background-color: linear-gradient(#52c2b8, #0a6b66);
+
+}
+#container{
+  -fx-background-color: #BAD1E9;
+    -fx-padding: 20px;
+    -fx-spacing: 10px;
+    -fx-alignment: center;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 5);
+}
+
+/* Style the username and password input fields */
+#usernameField {
+    -fx-background-color: rgba(255, 255, 255, 0.8);
+    -fx-border-color: transparent transparent #ccc transparent;
+    -fx-border-width: 1px;
+     -fx-padding: 5px;
+    -fx-border-radius: 5px;
+    -fx-font-size: 14px;
+}
+/* Style the username and password input fields */
+#passwordField {
+    -fx-background-color: rgba(255, 255, 255, 0.8);
+    -fx-border-color: transparent transparent #ccc transparent;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-padding: 5px;
+    -fx-font-size: 14px;
+}
+
+/* Style the login button */
 #loginButton{
-  -fx-background-color: #4CAF10;
+    -fx-background-color: #4CAF50;
     -fx-text-fill: white;
+     -fx-padding-top: 0px;
+      -fx-padding-right: 30px;
+      -fx-padding-bottom: 0px;
+     -fx-padding-left: 0px;
+    -fx-border-radius: 5px;
+    -fx-font-size: 16px;
+}
+
+/* Style the login button when hovered */
+#loginButton:hover {
+    -fx-background-color: #3E8E41;
+}
+
+/* Style the login button when pressed */
+#loginButton:pressed {
+    -fx-background-color: #1E5024;
 }

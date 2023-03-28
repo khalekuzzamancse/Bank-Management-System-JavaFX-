@@ -9,7 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
 
@@ -23,10 +23,10 @@ public class LoginScreen {
     @FXML
     private  Label errorLabel;
     Scene scene;
-    private VBox vBox;
+    private GridPane container;
 
     public LoginScreen() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/layout/login.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/layout/login_layout.fxml"));
 
         loader.setController(this);
         Parent root;
@@ -40,19 +40,21 @@ public class LoginScreen {
 
 
         //centering the content
-        vBox=(VBox) scene.lookup("#container");
+        container =(GridPane) scene.lookup("#container");
 
-        vBox.setLayoutX((scene.getWidth() - vBox.getWidth()) / 2);
+        container.setLayoutX((scene.getWidth() - container.getWidth()) / 2);
         // center the label vertically
-        vBox.setLayoutY((scene.getHeight() - vBox.getHeight()) / 2);
+        container.setLayoutY((scene.getHeight() - container.getHeight()) / 2);
         scene.widthProperty().addListener((obs, oldVal, newVal) -> {
             // center the label horizontally
-            vBox.setLayoutX((newVal.doubleValue() - vBox.getWidth()) / 2);
+            container.setLayoutX((newVal.doubleValue() - container.getWidth()) / 2);
         });
         scene.heightProperty().addListener((obs, oldVal, newVal) -> {
             // center the label vertically
-            vBox.setLayoutY((newVal.doubleValue() - vBox.getHeight()) / 2);
+            container.setLayoutY((newVal.doubleValue() - container.getHeight()) / 2);
         });
+
+
     }
 
     private void handleLogin(ActionEvent event) {
