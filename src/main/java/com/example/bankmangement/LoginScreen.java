@@ -26,7 +26,7 @@ public class LoginScreen {
     private VBox vBox;
 
     public LoginScreen() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("login.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/layout/login.fxml"));
 
         loader.setController(this);
         Parent root;
