@@ -5,18 +5,20 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0"
-            xmlns="http://javafx.com/javafx/19"
-            xmlns:fx="http://javafx.com/fxml/1"
+            fx:id="tableContainer"
+            xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.example.bankmangement.BoxViewController">
-   <children>
-      <TableView layoutX="27.0" layoutY="59.0" prefHeight="229.0" prefWidth="496.0">
-        <columns>
-          <TableColumn id="boxIDColumn" prefWidth="100.0" text="Box ID" />
-          <TableColumn id="heightColumn" prefWidth="100.0" text="Height(Inch)" />
-            <TableColumn id="widthColumn" prefWidth="100.0" text="Width(Inch)" />
-            <TableColumn id="oldPriceColumn" prefWidth="100.0" text="Old Price" />
-            <TableColumn id="newPriceColumn" prefWidth="100.0" text="New Price" />
-        </columns>
-      </TableView>
-   </children>
+    <children>
+        <TableView
+                fx:id="table"
+                layoutX="27.0" layoutY="59.0" prefHeight="229.0" prefWidth="496.0">
+            <columns>
+                <TableColumn  fx:id="boxIDColumn" prefWidth="100.0" text="Box ID"/>
+                <TableColumn fx:id="heightColumn" prefWidth="100.0" text="Height(Inch)"/>
+                <TableColumn fx:id="widthColumn" prefWidth="100.0" text="Width(Inch)"/>
+                <TableColumn fx:id="oldPriceColumn" prefWidth="100.0" text="Old Price"/>
+                <TableColumn fx:id="newPriceColumn" prefWidth="100.0" text="New Price"/>
+            </columns>
+        </TableView>
+    </children>
 </AnchorPane>

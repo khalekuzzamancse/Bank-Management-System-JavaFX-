@@ -24,12 +24,18 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws Exception {
         stage.setTitle("Bank Management System");
 
-        // prevent the user from resizing the window
-        stage.setMinWidth(400);
-        stage.setMinHeight(300);
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/layout/box_view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setScene(scene);
 
-        //stage.setScene(new LoginScreen().getScene());
-        stage.setScene(new AddAccountScreen(stage).getScene());
+
+
+//        // prevent the user from resizing the window
+//        stage.setMinWidth(400);
+//        stage.setMinHeight(300);
+//
+//        //stage.setScene(new LoginScreen().getScene());
+//        stage.setScene(new AddAccountScreen(stage).getScene());
         //  stage.setScene(new AddBoxScreen().getScene());
         stage.sizeToScene();
         stage.show();

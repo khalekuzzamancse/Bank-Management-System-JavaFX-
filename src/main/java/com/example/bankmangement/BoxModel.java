@@ -1,6 +1,6 @@
-package com.example.bankmangement.entity;
+package com.example.bankmangement;
 
-public class Box {
+public class BoxModel {
 
     private Integer id;
     private Integer height;
@@ -8,7 +8,7 @@ public class Box {
     private Integer oldPrice;
     private Integer newPrice;
 
-    public Box(Integer id, Integer height, Integer width, Integer oldPrice, Integer newPrice) {
+    public BoxModel(Integer id, Integer height, Integer width, Integer oldPrice, Integer newPrice) {
         this.id = id;
         this.height = height;
         this.width = width;

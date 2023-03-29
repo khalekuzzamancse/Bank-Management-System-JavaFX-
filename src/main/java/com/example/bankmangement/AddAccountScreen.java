@@ -19,7 +19,7 @@ import java.io.IOException;
 public class AddAccountScreen {
 
 
-    Scene scene;
+    private Scene scene;
     private GridPane container;
 
     private TextField nameTextField;
