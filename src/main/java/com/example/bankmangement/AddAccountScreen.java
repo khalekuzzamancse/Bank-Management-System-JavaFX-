@@ -31,15 +31,14 @@ public class AddAccountScreen {
     private TextField weightTextField;
     private TextField balanceTextField;
     private TextField firmTextField;
-    private TextField nomineeNameTextField;
-    private TextField nomineeRelationshipTextField;
+    private TextField deputyNameTextField;
     private Button addButton;
 
     private FileChooser fileChooser;
     private ImageView customerImageView;
-    private ImageView nomineeImageView;
+    private ImageView deputyImageImageView;
     private ImageView customerSignatureImageView;
-    private ImageView nomineeSignatureImageView;
+    private ImageView deputySignatureImageView;
     private Stage stage;
 
     public AddAccountScreen(Stage stage) throws IOException {
@@ -80,7 +79,7 @@ public class AddAccountScreen {
         String height = heightTextField.getText();
         String weight = weightTextField.getText();
         String balance = balanceTextField.getText();
-        String nomineeName = nomineeNameTextField.getText();
+        String nomineeName = deputyNameTextField.getText();
         System.out.println(
                 "name" + ":" + name + "\n" +
                         "email" + ":" + email + "\n" +
@@ -108,17 +107,17 @@ public class AddAccountScreen {
         heightTextField = (TextField) scene.lookup("#heightTextField");
         weightTextField = (TextField) scene.lookup("#weightTextField");
         firmTextField = (TextField) scene.lookup("#firmTextField");
-        nomineeNameTextField = (TextField) scene.lookup("#nomineeNameTextField");
+        deputyNameTextField = (TextField) scene.lookup("#deputyNameTextField");
 
         //
-        nomineeImageView = (ImageView) scene.lookup("#nomineeImageView");
-        nomineeImageView.setOnMouseClicked(this::onNomineeImageSelected);
+        deputyImageImageView = (ImageView) scene.lookup("#deputyImageImageView");
+        deputyImageImageView.setOnMouseClicked(this::onDeputyImageSelected);
         customerImageView = (ImageView) scene.lookup("#customerImageView");
         customerImageView.setOnMouseClicked(this::onCustomerImageSelected);
         customerSignatureImageView = (ImageView) scene.lookup("#customerSignatureImageView");
-        nomineeSignatureImageView = (ImageView) scene.lookup("#nomineeSignatureImageView");
+        deputySignatureImageView = (ImageView) scene.lookup("#deputySignatureImageView");
         customerSignatureImageView.setOnMouseClicked(this::onCustomerSignetureImageSelected);
-        nomineeSignatureImageView.setOnMouseClicked(this::onNomineeSignetureImageSelected);
+        deputySignatureImageView.setOnMouseClicked(this::onDeputySignetureImageSelected);
 
 
         //
@@ -126,14 +125,14 @@ public class AddAccountScreen {
         fileChooser.setTitle("Open Image File");
     }
 
-    private void onNomineeSignetureImageSelected(MouseEvent mouseEvent) {
+    private void onDeputySignetureImageSelected(MouseEvent mouseEvent) {
         FileChooser.ExtensionFilter imageFilter =
                 new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.jpeg", "*.png", "*.gif");
         fileChooser.getExtensionFilters().add(imageFilter);
         File selectedFile = fileChooser.showOpenDialog(stage);
         if (selectedFile != null) {
             Image image = new Image(selectedFile.toURI().toString());
-            nomineeSignatureImageView.setImage(image);
+            deputySignatureImageView.setImage(image);
         }
     }
 
@@ -162,14 +161,14 @@ public class AddAccountScreen {
         }
     }
 
-    private void onNomineeImageSelected(MouseEvent event) {
+    private void onDeputyImageSelected(MouseEvent event) {
         FileChooser.ExtensionFilter imageFilter =
                 new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.jpeg", "*.png", "*.gif");
         fileChooser.getExtensionFilters().add(imageFilter);
         File selectedFile = fileChooser.showOpenDialog(stage);
         if (selectedFile != null) {
             Image image = new Image(selectedFile.toURI().toString());
-            nomineeImageView.setImage(image);
+            deputyImageImageView.setImage(image);
         }
     }
 
