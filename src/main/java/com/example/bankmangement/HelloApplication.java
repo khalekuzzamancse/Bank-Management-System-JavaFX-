@@ -25,7 +25,7 @@ public class HelloApplication extends Application {
         stage.setTitle("Bank Management System");
 
         FXMLLoader fxmlLoader =
-                new FXMLLoader(HelloApplication.class.getResource("/layout/deputy_form.fxml"));
+                new FXMLLoader(HelloApplication.class.getResource("/layout/lease_agreement_form.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
 
