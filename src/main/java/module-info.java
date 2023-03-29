@@ -7,4 +7,6 @@ module com.example.bankmangement {
     exports com.example.bankmangement;
     exports com.example.bankmangement.entity;
     opens com.example.bankmangement.entity to javafx.fxml;
+    exports com.example.bankmangement.controller;
+    opens com.example.bankmangement.controller to javafx.fxml;
 }

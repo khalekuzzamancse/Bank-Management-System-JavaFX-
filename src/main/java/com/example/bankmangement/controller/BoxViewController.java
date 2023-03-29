@@ -1,4 +1,4 @@
-package com.example.bankmangement;
+package com.example.bankmangement.controller;
 
 import com.example.bankmangement.entity.BoxModel;
 import javafx.collections.FXCollections;

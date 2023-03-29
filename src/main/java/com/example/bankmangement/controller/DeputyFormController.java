@@ -1,4 +1,4 @@
-package com.example.bankmangement;
+package com.example.bankmangement.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

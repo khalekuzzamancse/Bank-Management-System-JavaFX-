@@ -1,6 +1,6 @@
-package com.example.bankmangement;
+package com.example.bankmangement.controller;
 
-import com.example.bankmangement.entity.BoxModel;
+import com.example.bankmangement.entity.Deputy;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
