@@ -24,7 +24,8 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws Exception {
         stage.setTitle("Bank Management System");
 
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/layout/deputy_view.fxml"));
+        FXMLLoader fxmlLoader =
+                new FXMLLoader(HelloApplication.class.getResource("/layout/deputy_form.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
 
