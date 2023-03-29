@@ -24,10 +24,9 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws Exception {
         stage.setTitle("Bank Management System");
 
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/layout/box_view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/layout/deputy_view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
-
 
 
 //        // prevent the user from resizing the window
