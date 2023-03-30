@@ -1,6 +1,9 @@
 package com.example.bankmangement.controller;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
@@ -8,9 +11,12 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.io.File;
 import java.net.URL;
@@ -24,6 +30,11 @@ import java.util.ResourceBundle;
 
 public class VisitationCardController implements Initializable {
 
+    @FXML
+    private GridPane fromGrid;
+    @FXML
+    private Tab form;
+
     private FileChooser fileChooser;
     //Form
 
@@ -35,6 +46,9 @@ public class VisitationCardController implements Initializable {
     private ImageView formSignatureImageView;
     @FXML
     private CheckBox formAsDeputyCheckBox;
+    @FXML
+    private Button validateButton;
+
 
     //description tab
 
@@ -75,11 +89,32 @@ public class VisitationCardController implements Initializable {
     //tab pan
     @FXML
     private TabPane tabPane;
+    private Stage myStage;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         fileChooser = new FileChooser();
         fileChooser.setTitle("Open Image File");
+
+
+        // Get the Scene object from the TabPane
+
+
+        // Set up a listener for the scene property of the root pane
+        tabPane.sceneProperty().addListener(new ChangeListener<Scene>() {
+            @Override
+            public void changed(ObservableValue<? extends Scene> observable, Scene oldValue, Scene newValue) {
+                if (newValue != null) {
+                    Scene scene=newValue;
+
+
+                }
+            }
+        });
+
+        //centering the content
+
+
     }
 
     @FXML
@@ -109,6 +144,7 @@ public class VisitationCardController implements Initializable {
     }
 
     private void moveToNextTab() {
+
         int nextTabIndex = tabPane.getSelectionModel().getSelectedIndex() + 1;
         if (nextTabIndex < tabPane.getTabs().size()) {
             tabPane.getSelectionModel().select(nextTabIndex);
@@ -166,6 +202,11 @@ public class VisitationCardController implements Initializable {
 
 
         // currentStage.close();
+
+    }
+
+    private void centerContain(Scene scene) {
+
 
     }
 
