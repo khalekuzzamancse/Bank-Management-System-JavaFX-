@@ -39,19 +39,13 @@ public class Application extends javafx.application.Application {
                 1, "1", "1", "na", "2",
                 "3", image2));
 
-
         List<Lease> list = Fao.read("LeaseTable.dat");
+
         System.out.println(list.size());
 
         for (Lease it : list) {
-            if (it.getHasDeputy()) {
-                System.out.println(it.getDeputySignature().getHeight());
-            }
             System.out.println(it.getCustomerID() + "  ," + it.getCustomerSignature().getHeight());
         }
-
-
-        // System.out.println(readRentFromFile("r.ser").getCustomerSignature().getHeight());
 
 
     }
