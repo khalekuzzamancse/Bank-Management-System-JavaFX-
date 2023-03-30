@@ -1,18 +1,36 @@
 package com.example.bankmangement.controller;
 
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
+import javafx.scene.SnapshotParameters;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.WritableImage;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+
+import java.io.File;
+import java.io.IOException;
+
+
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.graphics.image.LosslessFactory;
+import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
+
 
 public class LeaseAgreementFormController {
-
+    @FXML
+    private AnchorPane container;
     @FXML
     private TextField lesseeIDTextField;
     @FXML
@@ -60,6 +78,46 @@ public class LeaseAgreementFormController {
                 "the state of Florida.";
         agrementText.setText(s);
 
+
     }
+
+//    private void generatePDF() {
+//        // create a new PDF document
+//        PDDocument document = new PDDocument();
+//
+//        // create a new page in the document
+//        PDPage page = new PDPage();
+//        document.addPage(page);
+//
+//        // create a new content stream for the page
+//        try (PDPageContentStream contentStream = new PDPageContentStream(document, page)) {
+//
+//            // create a new JavaFX scene for the AnchorPane
+//            Scene scene = new Scene(container);
+//
+//            // create a new JavaFX image from the AnchorPane and render it to the PDF page
+//            WritableImage image = container.snapshot(new SnapshotParameters(), null);
+//            PDImageXObject xImage = LosslessFactory.createFromImage(document, SwingFXUtils.fromFXImage(image, null));
+//            contentStream.drawImage(xImage, 0, 0, page.getMediaBox().getWidth(), page.getMediaBox().getHeight());
+//
+//            // close the content stream
+//            contentStream.close();
+//
+//            // show a file chooser dialog to save the PDF file
+//            FileChooser fileChooser = new FileChooser();
+//            fileChooser.setTitle("Save PDF");
+//            fileChooser.setInitialFileName("document.pdf");
+//            File outputFile = fileChooser.showSaveDialog(new Stage());
+//
+//            if (outputFile != null) {
+//                // save the PDF document to the selected file
+//                document.save(outputFile);
+//                document.close();
+//            }
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
 }
