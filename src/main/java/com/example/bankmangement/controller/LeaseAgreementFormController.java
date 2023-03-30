@@ -5,7 +5,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 
 public class LeaseAgreementFormController {
 
@@ -23,6 +27,7 @@ public class LeaseAgreementFormController {
     private Text agrementText;
     @FXML
     private Button generateButton;
+
 
     @FXML
     private void onGenerate() {
@@ -54,7 +59,6 @@ public class LeaseAgreementFormController {
                 "This Agreement shall be governed by and construed in accordance with the laws of " +
                 "the state of Florida.";
         agrementText.setText(s);
-
 
     }
 

@@ -1,35 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
-
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.text.TextFlow?>
-<?import javafx.scene.text.Text?>
-<AnchorPane prefHeight="415.0" prefWidth="603.0" xmlns="http://javafx.com/javafx/19"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.bankmangement.controller.LeaseAgreementFormController">
+<AnchorPane prefHeight="415.0" prefWidth="603.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bankmangement.controller.LeaseAgreementFormController">
 
-    <TabPane fx:id="tabPane" layoutX="-3.0" maxHeight="-Infinity" maxWidth="-Infinity"
-             minHeight="-Infinity" minWidth="-Infinity"
-             prefHeight="400.0" prefWidth="499.0"
-             xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+    <TabPane fx:id="tabPane" layoutX="-3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="415.0" prefWidth="603.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
         <Tab text="Agreement Form">
             <GridPane layoutX="14.0" layoutY="19.0" prefHeight="352.0" prefWidth="508.0">
                 <columnConstraints>
@@ -72,19 +63,43 @@
                         <Image url="@../Images/nominee_signature.png" />
                     </image>
                 </ImageView>
-                <Button id="generateButton"
-                        fx:id="generateButton" mnemonicParsing="false"
-                        prefHeight="25.0" prefWidth="172.0" text="Genarate"
-                        onAction="#onGenerate"
-                        GridPane.columnIndex="4" GridPane.rowIndex="9" />
+                <Button id="generateButton" fx:id="generateButton" mnemonicParsing="false" onAction="#onGenerate" prefHeight="25.0" prefWidth="172.0" text="Genarate" GridPane.columnIndex="4" GridPane.rowIndex="9" />
 
             </GridPane>
 
         </Tab>
         <Tab text="Lease Agreement">
-            <TextFlow lineSpacing="5.0" prefHeight="400.0" prefWidth="520.0">
-                <Text fx:id="agrementText" text="jhafa"/>
-            </TextFlow>
+            <VBox>
+                <TextFlow lineSpacing="5.0" prefHeight="378.0" prefWidth="566.0" textAlignment="JUSTIFY">
+                    <Text fx:id="agrementText" text="-" wrappingWidth="52.94140625">
+                        <font>
+                            <Font size="14.0" />
+                        </font></Text>
+                    <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                    </padding>
+                </TextFlow>
+
+                <HBox>
+                    <ImageView fitHeight="61.0" fitWidth="158.0">
+                        <image>
+                            <Image url="@../Images/customer_signature.png" />
+                        </image>
+                        <HBox.margin>
+                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        </HBox.margin>
+                    </ImageView>
+                    <ImageView fitHeight="61.0" fitWidth="150.0">
+                        <image>
+                            <Image url="@../Images/nominee_signature.png" />
+                        </image>
+                  <HBox.margin>
+                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  </HBox.margin></ImageView>
+                </HBox>
+            </VBox>
+
+
         </Tab>
     </TabPane>
 
