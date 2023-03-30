@@ -2,6 +2,7 @@ module com.example.bankmangement {
     requires javafx.controls;
     requires javafx.fxml;
     requires org.apache.pdfbox;
+    requires javafx.swing;
 
 
     opens com.example.bankmangement to javafx.fxml;
