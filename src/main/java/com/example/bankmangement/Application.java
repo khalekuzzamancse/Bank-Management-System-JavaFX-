@@ -29,7 +29,6 @@ public class Application extends javafx.application.Application {
         stage.sizeToScene();
         stage.show();
 
-        //  Image image = new Image(getClass().getResource("/Images/" + "customer_signature.png").toExternalForm());
         Image image1 = new Image(getClass().getResource("/Images/" + "customer_signature.png").toExternalForm());
         Image image2 = new Image(getClass().getResource("/Images/" + "images.png").toExternalForm());
 
