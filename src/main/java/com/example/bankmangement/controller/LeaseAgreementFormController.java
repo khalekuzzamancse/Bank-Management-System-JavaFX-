@@ -73,10 +73,6 @@ public class LeaseAgreementFormController implements Initializable {
     @FXML
     private TextField durationTextField;
     @FXML
-    private TextField deputyIDTextField;
-    @FXML
-    private TextField depositAmountTextField;
-    @FXML
     private Text agrementText;
     @FXML
     private Button nextButton1;
@@ -101,7 +97,7 @@ public class LeaseAgreementFormController implements Initializable {
         String lessee = lesseeIDTextField.getText();
         String boxNo = boxNumberTextField.getText();
         String duration = durationTextField.getText();
-        String deputyID = deputyIDTextField.getText();
+
 
         String lesseeName = "Md Jakaria";
         String rentDate = "12-12-12";
