@@ -5,11 +5,14 @@ import javafx.scene.image.Image;
 import java.awt.image.BufferedImage;
 import java.io.Serializable;
 
-public class Lease implements Serializable {
+public class Rent implements Serializable {
+    private Integer id;
+    private ImageData customerSignetureimageData;
+
     private Integer lesseeID;
     private Integer customerID;
     private Integer depositAmount;
-    private BufferedImage customerSignature;
+    private transient Image customerSignature;
 
     private Integer boxNumber;
     private String rentDate;
@@ -18,15 +21,18 @@ public class Lease implements Serializable {
     private String deputyName;
     private String deputyAddress;
     private String deputyPhoneNumber;
-    private Image deputySignature;
+
+    private transient Image deputySignature;
+    private ImageData deputySignetureimageData;
     private Integer agreementID;
 
-    public Lease(Integer customerID,
-                 Integer depositAmount,
-                 BufferedImage customerSignature,
-                 Integer boxNumber,
-                 String rentDate,
-                 String expireDate) {
+    public Rent(
+            Integer customerID,
+                Integer depositAmount,
+                Image customerSignature,
+                Integer boxNumber,
+                String rentDate,
+                String expireDate) {
         this.customerID = customerID;
         this.depositAmount = depositAmount;
         this.customerSignature = customerSignature;
@@ -35,14 +41,19 @@ public class Lease implements Serializable {
         this.expireDate = expireDate;
         this.hasDeputy = false;
         this.lesseeID = (int) (Math.random() * (10000 - 10 + 1) + 100);
+        this.customerSignetureimageData = new ImageData(customerSignature);
     }
 
-    public Lease(Integer customerID,
-                 Integer depositAmount,
-                 BufferedImage customerSignature,
-                 Integer boxNumber, String rentDate,
-                 String expireDate, String deputyName, String deputyAddress,
-                 String deputyPhoneNumber, Image deputySignature
+    public Rent(Integer customerID,
+                Integer depositAmount,
+                Image customerSignature,
+                Integer boxNumber,
+                String rentDate,
+                String expireDate,
+                String deputyName,
+                String deputyAddress,
+                String deputyPhoneNumber,
+                Image deputySignature
     ) {
         this.customerID = customerID;
         this.depositAmount = depositAmount;
@@ -56,6 +67,8 @@ public class Lease implements Serializable {
         this.deputySignature = deputySignature;
         this.hasDeputy = true;
         this.lesseeID = (int) (Math.random() * (10000 - 10 + 1) + 100);
+        this.customerSignetureimageData = new ImageData(customerSignature);
+        this.deputySignetureimageData = new ImageData(deputySignature);
 
     }
 
@@ -83,11 +96,11 @@ public class Lease implements Serializable {
         this.depositAmount = depositAmount;
     }
 
-    public BufferedImage getCustomerSignature() {
-        return customerSignature;
+    public Image getCustomerSignature() {
+        return customerSignetureimageData.getImage();
     }
 
-    public void setCustomerSignature(BufferedImage customerSignature) {
+    public void setCustomerSignature(Image customerSignature) {
         this.customerSignature = customerSignature;
     }
 
@@ -148,7 +161,8 @@ public class Lease implements Serializable {
     }
 
     public Image getDeputySignature() {
-        return deputySignature;
+
+        return deputySignetureimageData.getImage();
     }
 
     public void setDeputySignature(Image deputySignature) {
@@ -163,22 +177,25 @@ public class Lease implements Serializable {
         this.agreementID = agreementID;
     }
 
-    @Override
-    public String toString() {
-        return "Lease{" +
-                "lesseeID=" + lesseeID +
-                ", customerID=" + customerID +
-                ", depositAmount=" + depositAmount +
-                ", customerSignature=" + customerSignature +
-                ", boxNumber=" + boxNumber +
-                ", rentDate='" + rentDate + '\'' +
-                ", expireDate='" + expireDate + '\'' +
-                ", hasDeputy=" + hasDeputy +
-                ", deputyName='" + deputyName + '\'' +
-                ", deputyAddress='" + deputyAddress + '\'' +
-                ", deputyPhoneNumber='" + deputyPhoneNumber + '\'' +
-                ", deputySignature=" + deputySignature+
-                ", agreementID=" + agreementID +
-                '}';
+//    public Rent(Integer id, ImageData imageData) {
+//        this.id = id;
+//        this.imageData = imageData;
+//    }
+//
+//    public Integer getId() {
+//        return id;
+//    }
+//
+//    public ImageData getImageData() {
+//        return imageData;
+//    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
+
+//    public void setImageData(ImageData imageData) {
+//        this.imageData = imageData;
+//    }
 }
+

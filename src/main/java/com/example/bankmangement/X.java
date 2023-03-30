@@ -1,44 +1,34 @@
 package com.example.bankmangement;
 
+import javafx.embed.swing.SwingFXUtils;
+import javafx.scene.image.Image;
+
 import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
+import java.io.*;
 
 public class X implements Serializable {
-    private int id;
-    private transient BufferedImage image;
+    private Integer id;
+    private ImageData imageData;
 
-    public X(int id, BufferedImage image) {
+    public X(Integer id, ImageData imageData) {
         this.id = id;
-        this.image = image;
+        this.imageData = imageData;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public ImageData getImageData() {
+        return imageData;
+    }
+
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public BufferedImage getImage() {
-        return image;
-    }
-
-    public void setImage(BufferedImage image) {
-        this.image = image;
-    }
-
-    private void writeObject(ObjectOutputStream out) throws IOException {
-        out.defaultWriteObject();
-        ImageIO.write(image, "png", out);
-    }
-
-    private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
-        in.defaultReadObject();
-        image = ImageIO.read(in);
+    public void setImageData(ImageData imageData) {
+        this.imageData = imageData;
     }
 }
+

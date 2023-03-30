@@ -1,5 +1,7 @@
 package com.example.bankmangement.controller;
 
+import com.example.bankmangement.LeaseFao;
+import com.example.bankmangement.Rent;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -19,13 +21,16 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class VisitationCardController implements Initializable {
@@ -95,6 +100,22 @@ public class VisitationCardController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         fileChooser = new FileChooser();
         fileChooser.setTitle("Open Image File");
+
+//        List<Rent> list = new ArrayList<>();
+//        try {
+//            list = LeaseFao.readFromFile();
+//            for (Rent it : list) {
+//                if(it.getHasDeputy())
+//                {
+//                    formSignatureImageView.setImage(it.getDeputySignature());
+//                }
+//            }
+//
+//        } catch (IOException | ClassNotFoundException e) {
+//            throw new RuntimeException(e);
+//        }
+
+
 
 
         // Get the Scene object from the TabPane
