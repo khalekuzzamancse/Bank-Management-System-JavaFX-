@@ -3,10 +3,16 @@ package com.example.bankmangement.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
+import java.io.File;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -18,7 +24,7 @@ import java.util.ResourceBundle;
 
 public class VisitationCardController implements Initializable {
 
-
+    private FileChooser fileChooser;
     //Form
 
     @FXML
@@ -63,6 +69,8 @@ public class VisitationCardController implements Initializable {
     private Button cardTabDoneButton;
     @FXML
     private CheckBox cardTabAsDeputyCheckBox;
+    private Image signature;
+    private Image attendantSignature;
 
     //tab pan
     @FXML
@@ -70,7 +78,8 @@ public class VisitationCardController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        fileChooser = new FileChooser();
+        fileChooser.setTitle("Open Image File");
     }
 
     @FXML
@@ -80,12 +89,21 @@ public class VisitationCardController implements Initializable {
         cardTabAsDeputyCheckBox.setSelected(formAsDeputyCheckBox.isSelected());
         cardTabVisitDateText.setText(getTodayDate());
         cardTabVisitTimeText.setText(getCurrentTime());
+        if (signature != null)
+            descriptionTabTodaySignature.setImage(signature);
         moveToNextTab();
     }
 
     @FXML
     private void onGrantButtonClick(ActionEvent event) {
         cardTabDescriptionText.setText(descriptionTabTextArea.getText());
+        if (signature != null) {
+            cardTabSignature.setImage(signature);
+        }
+        if (attendantSignature != null) {
+            cardTabAttendantSignature.setImage(attendantSignature);
+        }
+
         moveToNextTab();
 
     }
@@ -110,6 +128,45 @@ public class VisitationCardController implements Initializable {
         LocalTime time = LocalTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
         return time.format(formatter);
+    }
+
+    @FXML
+    private void onCustomerSignetureImageSelected(MouseEvent mouseEvent) {
+        FileChooser.ExtensionFilter imageFilter =
+                new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.jpeg", "*.png", "*.gif");
+        fileChooser.getExtensionFilters().add(imageFilter);
+        Scene currentScene = formSignatureImageView.getScene();
+        Stage currentStage = (Stage) currentScene.getWindow();
+        File selectedFile = fileChooser.showOpenDialog(currentStage);
+        if (selectedFile != null) {
+            Image image = new Image(selectedFile.toURI().toString());
+            formSignatureImageView.setImage(image);
+            signature = image;
+        }
+
+
+        // currentStage.close();
+
+    }
+
+    @FXML
+    private void onDescriptionTabAttendantSignature(MouseEvent mouseEvent) {
+        FileChooser.ExtensionFilter imageFilter =
+                new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.jpeg", "*.png", "*.gif");
+        fileChooser.getExtensionFilters().add(imageFilter);
+        Scene currentScene = formSignatureImageView.getScene();
+        Stage currentStage = (Stage) currentScene.getWindow();
+        File selectedFile = fileChooser.showOpenDialog(currentStage);
+        if (selectedFile != null) {
+            Image image = new Image(selectedFile.toURI().toString());
+            descriptionTabAttendantSignature.setImage(image);
+            attendantSignature = image;
+
+        }
+
+
+        // currentStage.close();
+
     }
 
 

@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bankmangement.controller.VisitationCardController">
-    <TabPane  fx:id="tabPane" prefHeight="480.0" prefWidth="668.0" tabClosingPolicy="UNAVAILABLE">
+    <TabPane fx:id="tabPane" prefHeight="480.0" prefWidth="708.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
             <Tab text="Form">
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="300.0">
@@ -32,33 +32,37 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         </rowConstraints>
                         <children>
                             <Label prefHeight="32.0" prefWidth="122.0" text="Customer ID" />
                             <Label prefHeight="29.0" prefWidth="122.0" text="Box No" GridPane.rowIndex="1" />
-                            <Label prefHeight="37.0" prefWidth="122.0" text="Signature" GridPane.rowIndex="2" />
-                            <CheckBox fx:id="formAsDeputyCheckBox" mnemonicParsing="false" prefHeight="30.0" prefWidth="104.0" text="As Deputy" GridPane.rowIndex="3" />
-                            <TextField fx:id="customerIDTextField" GridPane.columnIndex="1" />
-                            <TextField fx:id="boxNoTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                            <ImageView fx:id="formSignatureImageView" fitHeight="37.0" fitWidth="155.0" pickOnBounds="true" smooth="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                            <Label prefHeight="37.0" prefWidth="122.0" text="Signature" GridPane.rowIndex="3" />
+                            <CheckBox fx:id="formAsDeputyCheckBox" mnemonicParsing="false" prefHeight="30.0" prefWidth="104.0" text="As Deputy" GridPane.rowIndex="5" />
+                            <TextField fx:id="customerIDTextField" prefHeight="25.0" prefWidth="184.0" GridPane.columnIndex="1" GridPane.columnSpan="2" />
+                            <TextField fx:id="boxNoTextField" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                            <ImageView fx:id="formSignatureImageView" fitHeight="91.0" fitWidth="263.0" onMouseClicked="#onCustomerSignetureImageSelected" pickOnBounds="true" smooth="false" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                 <image>
                                     <Image url="@../Images/customer_signature.png" />
                                 </image>
                             </ImageView>
                         </children>
                     </GridPane>
-                    <Button onAction="#onValidateButtonClick" layoutX="530.0" layoutY="345.0" mnemonicParsing="false" text="Validation" />
+                    <Button layoutX="598.0" layoutY="425.0" mnemonicParsing="false" onAction="#onValidateButtonClick" text="Validation" />
                 </AnchorPane>
             </Tab>
             <Tab text="Description">
                 <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                         <children>
-                            <TextArea fx:id="descriptionTabTextArea" layoutX="26.0" layoutY="185.0" prefHeight="224.0" prefWidth="437.0" />
-                            <GridPane layoutX="26.0" layoutY="34.0" prefHeight="114.0" prefWidth="225.0">
+                            <TextArea fx:id="descriptionTabTextArea" layoutX="26.0" layoutY="237.0" prefHeight="172.0" prefWidth="437.0" />
+                            <GridPane layoutX="37.0" layoutY="38.0" prefHeight="172.0" prefWidth="341.0">
                                 <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="117.0" minWidth="10.0" prefWidth="117.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="71.0" minWidth="10.0" prefWidth="35.0" />
+                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.0" minWidth="10.0" prefWidth="110.0" />
+                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="82.0" minWidth="10.0" prefWidth="100.0" />
+                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="82.0" minWidth="10.0" prefWidth="68.0" />
                                 </columnConstraints>
                                 <rowConstraints>
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -66,38 +70,41 @@
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                 <Label prefHeight="34.0" prefWidth="113.0" text="Signature" />
-                                <Label prefHeight="38.0" prefWidth="113.0" text="Today Signature" GridPane.rowIndex="2" />
-                                <ImageView fx:id="descriptionTabSignature" fitHeight="29.0" fitWidth="112.0" pickOnBounds="true" smooth="false" GridPane.columnIndex="1">
+                                <Label prefHeight="38.0" prefWidth="113.0" text="Today Signature" GridPane.rowIndex="3" />
+                                <ImageView fx:id="descriptionTabSignature" fitHeight="54.0" fitWidth="231.0" pickOnBounds="true" smooth="false" GridPane.columnIndex="1" GridPane.columnSpan="2">
                                     <Image url="@../Images/customer_image.png" />
                                 </ImageView>
-                                <ImageView fx:id="descriptionTabTodaySignature" fitHeight="28.0" fitWidth="114.0" pickOnBounds="true" smooth="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                <ImageView fx:id="descriptionTabTodaySignature" fitHeight="44.0" fitWidth="230.0" pickOnBounds="true" smooth="false" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                     <Image url="@../Images/customer_signature.png" />
                                 </ImageView>
-                        <ImageView fx:id="descriptionTabAttendantSignature" fitHeight="31.0" fitWidth="114.0" pickOnBounds="true" smooth="false" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                        <ImageView fx:id="descriptionTabAttendantSignature" fitHeight="68.0" fitWidth="231.0" onMouseClicked="#onDescriptionTabAttendantSignature" pickOnBounds="true" smooth="false" GridPane.columnIndex="1" GridPane.rowIndex="7">
                            <image>
                               <Image url="@../Images/customer_signature.png" />
                            </image>
                         </ImageView>
-                        <Label prefHeight="29.0" prefWidth="118.0" text="Atteande Signature" GridPane.rowIndex="4" />
+                        <Label prefHeight="29.0" prefWidth="118.0" text="Atteande Signature" GridPane.rowIndex="6" />
                             </GridPane>
-                            <Button fx:id="descriptionTabGrantButton"
-                                    layoutX="548.0" layoutY="339.0"
-                                    onAction="#onGrantButtonClick"
-                                    mnemonicParsing="false" text="Grant" />
+                            <Button fx:id="descriptionTabGrantButton" layoutX="615.0" layoutY="418.0" mnemonicParsing="false" onAction="#onGrantButtonClick" text="Grant" />
                         </children>
                     </AnchorPane>
                 </content>
             </Tab>
             <Tab text="Card">
                 <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="407.0" prefWidth="625.0">
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="489.0" prefWidth="703.0">
                         <children>
-                            <GridPane layoutX="39.0" layoutY="41.0">
+                            <GridPane layoutX="14.0" layoutY="14.0">
                                 <columnConstraints>
                                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="118.0" minWidth="10.0" prefWidth="118.0" />
                                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="113.0" minWidth="10.0" prefWidth="112.0" />
+                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="100.0" />
+                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="100.0" />
                                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="70.0" />
                                 </columnConstraints>
                                 <rowConstraints>
@@ -114,40 +121,42 @@
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                 <children>
-                                    <Label prefHeight="27.0" prefWidth="191.0" text="Miami Bank" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                    <ImageView fitHeight="45.0" fitWidth="113.0" pickOnBounds="true" smooth="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                    <Label prefHeight="27.0" prefWidth="191.0" text="Miami Bank" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                    <ImageView fitHeight="45.0" fitWidth="113.0" pickOnBounds="true" smooth="false" GridPane.rowIndex="1">
                                         <image>
                                             <Image url="@../Images/images.png" />
                                         </image>
                                     </ImageView>
-                                    <Label prefHeight="25.0" prefWidth="100.0" text="Customer ID" GridPane.rowIndex="3" />
-                                    <Label prefHeight="29.0" prefWidth="114.0" text="Box No" GridPane.rowIndex="4" />
-                                    <Label prefHeight="32.0" prefWidth="100.0" text="Visit Date" GridPane.rowIndex="5" />
-                                    <Label prefHeight="29.0" prefWidth="100.0" text="Visit Time" GridPane.rowIndex="6" />
-                                    <Label prefHeight="27.0" prefWidth="100.0" text="Signature" GridPane.rowIndex="7" />
-                                    <CheckBox fx:id="cardTabAsDeputyCheckBox" mnemonicParsing="false" prefHeight="37.0" prefWidth="100.0" text="As Deputy" GridPane.rowIndex="8" />
-                                    <Label prefHeight="29.0" prefWidth="118.0" text="Atteande Signature" GridPane.rowIndex="9" />
-                                    <Label prefHeight="28.0" prefWidth="118.0" text="Description" GridPane.columnIndex="1" GridPane.rowIndex="10" />
-                                    <Text fx:id="cardTabDescriptionText" strokeType="OUTSIDE" strokeWidth="0.0" text="--" wrappingWidth="307.13671875" GridPane.rowIndex="11" />
-                                    <Text fx:id="cardTabCustomerIDText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="112.13671875" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                    <Text fx:id="cardTabBoxNoText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="114.13671875" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                    <Text fx:id="cardTabVisitDateText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="114.13671875" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                                    <Text fx:id="cardTabVisitTimeText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="114.13671875" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                                    <ImageView fx:id="cardTabSignature" fitHeight="28.0" fitWidth="112.0" pickOnBounds="true" smooth="false" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                    <Label prefHeight="25.0" prefWidth="100.0" text="Customer ID" GridPane.rowIndex="4" />
+                                    <Label prefHeight="29.0" prefWidth="114.0" text="Box No" GridPane.rowIndex="5" />
+                                    <Label prefHeight="32.0" prefWidth="100.0" text="Visit Date" GridPane.rowIndex="6" />
+                                    <Label prefHeight="29.0" prefWidth="100.0" text="Visit Time" GridPane.rowIndex="7" />
+                                    <Label prefHeight="27.0" prefWidth="100.0" text="Signature" GridPane.rowIndex="9" />
+                                    <CheckBox fx:id="cardTabAsDeputyCheckBox" mnemonicParsing="false" prefHeight="30.0" prefWidth="124.0" text="As Deputy" GridPane.rowIndex="3" />
+                                    <Label prefHeight="29.0" prefWidth="118.0" text="Atteande Signature" GridPane.rowIndex="11" />
+                                    <Label prefHeight="28.0" prefWidth="118.0" text="Description" GridPane.rowIndex="13" />
+                                    <Text fx:id="cardTabDescriptionText" strokeType="OUTSIDE" strokeWidth="0.0" text="--" wrappingWidth="307.13671875" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+                                    <Text fx:id="cardTabCustomerIDText" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="112.13671875" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <Text fx:id="cardTabBoxNoText" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="114.13671875" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                    <Text fx:id="cardTabVisitDateText" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="114.13671875" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                    <Text fx:id="cardTabVisitTimeText" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="114.13671875" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                    <ImageView fx:id="cardTabSignature" fitHeight="46.0" fitWidth="205.0" pickOnBounds="true" smooth="false" GridPane.columnIndex="1" GridPane.rowIndex="9">
                                         <image>
                                             <Image url="@../Images/customer_signature.png" />
                                         </image>
                                     </ImageView>
-                                    <ImageView fx:id="cardTabAttendantSignature" fitHeight="31.0" fitWidth="114.0" pickOnBounds="true" smooth="false" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                                    <ImageView fx:id="cardTabAttendantSignature" fitHeight="49.0" fitWidth="209.0" pickOnBounds="true" smooth="false" GridPane.columnIndex="1" GridPane.rowIndex="11">
                                         <image>
                                             <Image url="@../Images/customer_signature.png" />
                                         </image>
                                     </ImageView>
                                 </children>
                             </GridPane>
-                            <Button fx:id="cardTabDoneButton" layoutX="602.0" layoutY="419.0" mnemonicParsing="false" text="Done" />
+                            <Button fx:id="cardTabDoneButton" layoutX="649.0" layoutY="422.0" mnemonicParsing="false" text="Done" />
                         </children>
                     </AnchorPane>
                 </content>
