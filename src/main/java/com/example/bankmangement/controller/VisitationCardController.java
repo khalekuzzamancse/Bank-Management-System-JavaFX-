@@ -85,6 +85,7 @@ public class VisitationCardController implements Initializable {
 
     @FXML
     private void onGrantButtonClick(ActionEvent event) {
+        cardTabDescriptionText.setText(descriptionTabTextArea.getText());
         moveToNextTab();
 
     }
