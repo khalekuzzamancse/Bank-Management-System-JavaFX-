@@ -4,12 +4,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import javafx.embed.swing.SwingFXUtils;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
 import java.io.*;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Application extends javafx.application.Application {
@@ -35,26 +31,17 @@ public class Application extends javafx.application.Application {
 
         //  Image image = new Image(getClass().getResource("/Images/" + "customer_signature.png").toExternalForm());
         Image image1 = new Image(getClass().getResource("/Images/" + "customer_signature.png").toExternalForm());
-
-
-        List<Lease> leaseList = new ArrayList<>();
-        leaseList.add(
-                new Lease(1, 1, image1,
-                        1, "1", "1"));
-        // LeaseFao.writeToFile(rentList);
-        LeaseFao.addToTable(new Lease(10, 1, image1,
-                1, "1", "1"));
-
-
         Image image2 = new Image(getClass().getResource("/Images/" + "images.png").toExternalForm());
-//        LeaseFao.addToTable(new Rent(23, 1, image2,
-//                1, "1", "1"));
-//
-//        LeaseFao.addToTable(new Rent(45, 1, image1,
-//                1, "1", "1", "na", "2", "3", image2));
+
+        Fao.write("LeaseTable.dat", new Lease(23, 1, image2,
+                1, "1", "1"));
+        Fao.write("LeaseTable.dat", new Lease(45, 1, image1,
+                1, "1", "1", "na", "2",
+                "3", image2));
 
 
-        List<Lease> list = LeaseFao.readFromFile();
+        List<Lease> list = Fao.read("LeaseTable.dat");
+        System.out.println(list.size());
 
         for (Lease it : list) {
             if (it.getHasDeputy()) {
