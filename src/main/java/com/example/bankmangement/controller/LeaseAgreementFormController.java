@@ -59,7 +59,6 @@ public class LeaseAgreementFormController implements Initializable {
     );
 
 
-
     //
     @FXML
     private Button nextButton;
@@ -80,7 +79,21 @@ public class LeaseAgreementFormController implements Initializable {
     @FXML
     private Text agrementText;
     @FXML
-    private Button generateButton;
+    private Button nextButton1;
+
+    //deputy form
+    @FXML
+    private TextField nameField;
+
+    @FXML
+    private TextField addressField;
+
+    @FXML
+    private TextField phoneField;
+
+    @FXML
+    private Button nextButton2;
+//
 
 
     @FXML
@@ -156,6 +169,24 @@ public class LeaseAgreementFormController implements Initializable {
             tabPane.getSelectionModel().select(nextTabIndex);
         }
     }
+
+    @FXML
+    private void onNextButton2() {
+        String name = nameField.getText();
+        String address = addressField.getText();
+        String phone = phoneField.getText();
+
+        System.out.println("Name: " + name);
+        System.out.println("Address: " + address);
+        System.out.println("Phone: " + phone);
+
+        onGenerate();
+        int nextTabIndex = tabPane.getSelectionModel().getSelectedIndex() + 1;
+        if (nextTabIndex < tabPane.getTabs().size()) {
+            tabPane.getSelectionModel().select(nextTabIndex);
+        }
+    }
+
     private void alignCenter() {
 
         boxIDColumn.setCellFactory(column -> new TableCell<BoxModel, Integer>() {
