@@ -54,7 +54,7 @@ public class LeaseAgreementFormController {
                 "the state of Florida.";
         agrementText.setText(s);
 
-        // System.out.println(s);
+
     }
 
 }
