@@ -1,12 +1,16 @@
 package com.example.bankmangement.controller;
 
+import com.example.bankmangement.entity.BoxModel;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.SnapshotParameters;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.WritableImage;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
@@ -19,6 +23,8 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 
 import org.apache.pdfbox.pdmodel.PDDocument;
@@ -28,9 +34,39 @@ import org.apache.pdfbox.pdmodel.graphics.image.LosslessFactory;
 import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 
 
-public class LeaseAgreementFormController {
+public class LeaseAgreementFormController implements Initializable {
+    //For table view
+    @FXML
+    private AnchorPane tableContainer;
+
+    @FXML
+    private TableView<BoxModel> table;
+    @FXML
+    private TableColumn<BoxModel, Integer> boxIDColumn;
+    @FXML
+    private TableColumn<BoxModel, Integer> heightColumn;
+    @FXML
+    private TableColumn<BoxModel, Integer> widthColumn;
+    @FXML
+    private TableColumn<BoxModel, Integer> oldPriceColumn;
+    @FXML
+    private TableColumn<BoxModel, Integer> newPriceColumn;
+    private final ObservableList<BoxModel> list = FXCollections.observableArrayList(
+            new BoxModel(1, 3, 5, 10, 25),
+            new BoxModel(2, 5, 5, 25, 45),
+            new BoxModel(3, 3, 10, 30, 75),
+            new BoxModel(4, 5, 10, 40, 100)
+    );
+
+
+
+    //
+    @FXML
+    private Button nextButton;
     @FXML
     private AnchorPane container;
+    @FXML
+    private TabPane tabPane;
     @FXML
     private TextField lesseeIDTextField;
     @FXML
@@ -78,7 +114,118 @@ public class LeaseAgreementFormController {
                 "the state of Florida.";
         agrementText.setText(s);
 
+        //moving the next tab
+        int nextTabIndex = tabPane.getSelectionModel().getSelectedIndex() + 1;
+        if (nextTabIndex < tabPane.getTabs().size()) {
+            tabPane.getSelectionModel().select(nextTabIndex);
+        }
 
+
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        boxIDColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        heightColumn.setCellValueFactory(new PropertyValueFactory<BoxModel, Integer>("height"));
+        widthColumn.setCellValueFactory(new PropertyValueFactory<BoxModel, Integer>("width"));
+        oldPriceColumn.setCellValueFactory(new PropertyValueFactory<BoxModel, Integer>("oldPrice"));
+        newPriceColumn.setCellValueFactory(new PropertyValueFactory<BoxModel, Integer>("newPrice"));
+        table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+        table.setItems(list);
+
+        table.setLayoutX((tableContainer.getWidth() - tableContainer.getWidth()) / 2);
+        // center the label vertically
+        table.setLayoutY((tableContainer.getHeight() - tableContainer.getHeight()) / 2);
+        tableContainer.widthProperty().addListener((obs, oldVal, newVal) -> {
+            // center the label horizontally
+            table.setLayoutX((newVal.doubleValue() - table.getWidth()) / 2);
+        });
+        tableContainer.heightProperty().addListener((obs, oldVal, newVal) -> {
+            // center the label vertically
+            table.setLayoutY((newVal.doubleValue() - table.getHeight()) / 2);
+        });
+        alignCenter();
+
+    }
+
+
+    @FXML
+    void handleNextButtonAction(ActionEvent event) {
+        int nextTabIndex = tabPane.getSelectionModel().getSelectedIndex() + 1;
+        if (nextTabIndex < tabPane.getTabs().size()) {
+            tabPane.getSelectionModel().select(nextTabIndex);
+        }
+    }
+    private void alignCenter() {
+
+        boxIDColumn.setCellFactory(column -> new TableCell<BoxModel, Integer>() {
+            @Override
+            protected void updateItem(Integer item, boolean empty) {
+                super.updateItem(item, empty);
+                if (item == null || empty) {
+                    setText(null);
+                    setStyle("");
+                } else {
+                    setText(item.toString());
+                    setAlignment(Pos.CENTER);
+                }
+            }
+        });
+
+        heightColumn.setCellFactory(column -> new TableCell<BoxModel, Integer>() {
+            @Override
+            protected void updateItem(Integer item, boolean empty) {
+                super.updateItem(item, empty);
+                if (item == null || empty) {
+                    setText(null);
+                    setStyle("");
+                } else {
+                    setText(item.toString());
+                    setAlignment(Pos.CENTER);
+                }
+            }
+        });
+
+        widthColumn.setCellFactory(column -> new TableCell<BoxModel, Integer>() {
+            @Override
+            protected void updateItem(Integer item, boolean empty) {
+                super.updateItem(item, empty);
+                if (item == null || empty) {
+                    setText(null);
+                    setStyle("");
+                } else {
+                    setText(item.toString());
+                    setAlignment(Pos.CENTER);
+                }
+            }
+        });
+
+        oldPriceColumn.setCellFactory(column -> new TableCell<BoxModel, Integer>() {
+            @Override
+            protected void updateItem(Integer item, boolean empty) {
+                super.updateItem(item, empty);
+                if (item == null || empty) {
+                    setText(null);
+                    setStyle("");
+                } else {
+                    setText(item.toString());
+                    setAlignment(Pos.CENTER);
+                }
+            }
+        });
+        newPriceColumn.setCellFactory(column -> new TableCell<BoxModel, Integer>() {
+            @Override
+            protected void updateItem(Integer item, boolean empty) {
+                super.updateItem(item, empty);
+                if (item == null || empty) {
+                    setText(null);
+                    setStyle("");
+                } else {
+                    setText(item.toString());
+                    setAlignment(Pos.CENTER);
+                }
+            }
+        });
     }
 
 //    private void generatePDF() {

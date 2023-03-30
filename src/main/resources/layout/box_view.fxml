@@ -8,17 +8,15 @@
             fx:id="tableContainer"
             xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.example.bankmangement.controller.BoxViewController">
-    <children>
-        <TableView
-                fx:id="table"
-                layoutX="27.0" layoutY="59.0" prefHeight="229.0" prefWidth="550.0">
-            <columns>
-                <TableColumn  fx:id="boxIDColumn" prefWidth="100.0" resizable="false" text="Box ID"/>
-                <TableColumn fx:id="heightColumn" prefWidth="100.0" resizable="false" text="Height(Inch)"/>
-                <TableColumn fx:id="widthColumn" prefWidth="100.0" resizable="false" text="Width(Inch)"/>
-                <TableColumn fx:id="oldPriceColumn" prefWidth="100.0" resizable="false" text="Old Price"/>
-                <TableColumn fx:id="newPriceColumn" prefWidth="100.0" resizable="false" text="New Price"/>
-            </columns>
-        </TableView>
-    </children>
+    <TableView
+            fx:id="table"
+            layoutX="27.0" layoutY="59.0" prefHeight="229.0" prefWidth="550.0">
+        <columns>
+            <TableColumn fx:id="boxIDColumn" prefWidth="100.0" resizable="false" text="Box ID"/>
+            <TableColumn fx:id="heightColumn" prefWidth="100.0" resizable="false" text="Height(Inch)"/>
+            <TableColumn fx:id="widthColumn" prefWidth="100.0" resizable="false" text="Width(Inch)"/>
+            <TableColumn fx:id="oldPriceColumn" prefWidth="100.0" resizable="false" text="Old Price"/>
+            <TableColumn fx:id="newPriceColumn" prefWidth="100.0" resizable="false" text="New Price"/>
+        </columns>
+    </TableView>
 </AnchorPane>
