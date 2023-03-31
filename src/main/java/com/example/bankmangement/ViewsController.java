@@ -7,10 +7,51 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
 public class ViewsController implements Initializable {
+    //Customer tab
+
+    @FXML
+    private TableView<Customer> customerTable;
+
+    @FXML
+    private TableColumn<Customer, String> nameCol;
+
+    @FXML
+    private TableColumn<Customer, String> emailCol;
+
+    @FXML
+    private TableColumn<Customer, String> phoneCol;
+
+    @FXML
+    private TableColumn<Customer, String> firmCol;
+
+    @FXML
+    private TableColumn<Customer, String> addressCol;
+
+    @FXML
+    private TableColumn<Customer, String> eyeColorCol;
+
+    @FXML
+    private TableColumn<Customer, String> hairColorCol;
+
+    @FXML
+    private TableColumn<Customer, String> heightCol;
+
+    @FXML
+    private TableColumn<Customer, String> weightCol;
+
+    @FXML
+    private TableColumn<Customer, Double> balanceCol;
+
+    @FXML
+    private TableColumn<Customer, Integer> userIdCol;
+
+
+    ///
 
 
     @FXML
@@ -35,7 +76,6 @@ public class ViewsController implements Initializable {
     private TableColumn<Lease, String> leaseTabDeputyName;
 
 
-
     //
     @FXML
     private TableView<VisitationCard> visitingCardTabTable;
@@ -53,12 +93,13 @@ public class ViewsController implements Initializable {
     private TableColumn<VisitationCard, String> visitingCardTabDescriptionColumn;
 
 
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        initializeCustomerTab();
         initializeVisitTab();
         initializeLeaseTab();
     }
+
     public void initializeVisitTab() {
         // Set up the table columns to display the data from the VisitationCard objects
         visitingCardTabCustomerIDColumn.setCellValueFactory(new PropertyValueFactory<>("customerID"));
@@ -71,7 +112,8 @@ public class ViewsController implements Initializable {
         List<VisitationCard> visitCards = Fao.read(TableName.VISITATION_CARD_TABLE);
         visitingCardTabTable.getItems().addAll(visitCards);
     }
-    public void initializeLeaseTab() {
+
+    private void initializeLeaseTab() {
         leaseTabCustomerID.setCellValueFactory(new PropertyValueFactory<>("customerID"));
         leaseTabBoxNo.setCellValueFactory(new PropertyValueFactory<>("boxNumber"));
         leaseVisitRentDate.setCellValueFactory(new PropertyValueFactory<>("rentDate"));
@@ -80,6 +122,23 @@ public class ViewsController implements Initializable {
         leaseTabDeputyName.setCellValueFactory(new PropertyValueFactory<>("deputyName"));
         List<Lease> leaseList = Fao.read(TableName.LEASE_TABLE);
         leaseTabTable.getItems().addAll(leaseList);
+    }
+
+    private void initializeCustomerTab() {
+        nameCol.setCellValueFactory(new PropertyValueFactory<>("userID"));
+        emailCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        phoneCol.setCellValueFactory(new PropertyValueFactory<>("balance"));
+        firmCol.setCellValueFactory(new PropertyValueFactory<>("email"));
+        addressCol.setCellValueFactory(new PropertyValueFactory<>("address"));
+        eyeColorCol.setCellValueFactory(new PropertyValueFactory<>("eyeColor"));
+        hairColorCol.setCellValueFactory(new PropertyValueFactory<>("hairColor"));
+        heightCol.setCellValueFactory(new PropertyValueFactory<>("height"));
+        weightCol.setCellValueFactory(new PropertyValueFactory<>("weight"));
+        balanceCol.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
+        userIdCol.setCellValueFactory(new PropertyValueFactory<>("firm"));
+        List<Customer> customerList = new ArrayList<>();
+        customerList = Fao.read(TableName.CUSTOMER_TABLE);
+        customerTable.getItems().addAll(customerList);
     }
 
 }
