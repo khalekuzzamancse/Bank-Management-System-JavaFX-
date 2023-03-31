@@ -30,6 +30,7 @@ public class Application extends javafx.application.Application {
         stage.sizeToScene();
         stage.show();
 
+
        DemoData.addData();
 
 //        List<HistoryCard> list = Fao.read("HistoryCard.dat");
