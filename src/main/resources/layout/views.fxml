@@ -50,9 +50,13 @@
             </TableView>
         </Tab>
         <Tab text="History Cards">
-            <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
+            <TableView fx:id="historyCardTable">
+                <columns>
+                    <TableColumn fx:id="historyTabCustomerID" prefWidth="100" text="Customer ID" />
+                    <TableColumn fx:id="historyTabBoxNo" prefWidth="100" text="Box Number" />
+                    <TableColumn fx:id="historyTabRentDate" prefWidth="150" text="Rent Date" />
+                </columns>
+            </TableView>
         </Tab>
     </tabs>
 </TabPane>

@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class ViewsController implements Initializable {
+
     //Customer tab
 
     @FXML
@@ -92,6 +93,15 @@ public class ViewsController implements Initializable {
     @FXML
     private TableColumn<VisitationCard, String> visitingCardTabDescriptionColumn;
 
+    //historyTab
+    @FXML
+    private TableView<HistoryCard> historyCardTable;
+    @FXML
+    private TableColumn <HistoryCard,Integer> historyTabCustomerID;
+    @FXML
+    private TableColumn  <HistoryCard,Integer> historyTabBoxNo;
+    @FXML
+    private TableColumn  <HistoryCard,String> historyTabRentDate;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -139,6 +149,14 @@ public class ViewsController implements Initializable {
         List<Customer> customerList = new ArrayList<>();
         customerList = Fao.read(TableName.CUSTOMER_TABLE);
         customerTable.getItems().addAll(customerList);
+    }
+    private void initializeHistoryTab(){
+        historyTabCustomerID.setCellValueFactory(new PropertyValueFactory<>("customerID"));
+        historyTabBoxNo.setCellValueFactory(new PropertyValueFactory<>("boxNumber"));
+        historyTabRentDate.setCellValueFactory(new PropertyValueFactory<>("rentDate"));
+        List<HistoryCard> historyCardList = new ArrayList<>();
+        historyCardList = Fao.read(TableName.HISTORY_CARD_TABLE);
+        historyCardTable.getItems().addAll(historyCardList);
     }
 
 }
