@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 public class CustomerController implements Initializable {
 
@@ -61,17 +62,18 @@ public class CustomerController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // configure the table columns to display data from the Customer class
-        nameCol.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
-        emailCol.setCellValueFactory(cellData -> cellData.getValue().emailProperty());
-        phoneCol.setCellValueFactory(cellData -> cellData.getValue().phoneNumberProperty());
-        firmCol.setCellValueFactory(cellData -> cellData.getValue().firmProperty());
-        addressCol.setCellValueFactory(cellData -> cellData.getValue().addressProperty());
-        eyeColorCol.setCellValueFactory(cellData -> cellData.getValue().eyeColorProperty());
-        hairColorCol.setCellValueFactory(cellData -> cellData.getValue().hairColorProperty());
-        heightCol.setCellValueFactory(cellData -> cellData.getValue().heightProperty());
-        weightCol.setCellValueFactory(cellData -> cellData.getValue().weightProperty());
-        balanceCol.setCellValueFactory(cellData -> cellData.getValue().balanceProperty().asObject());
-        userIdCol.setCellValueFactory(cellData -> cellData.getValue().userIDProperty().asObject());
+
+        nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));;
+        emailCol.setCellValueFactory(new PropertyValueFactory<>("email"));
+        phoneCol.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
+        firmCol.setCellValueFactory(new PropertyValueFactory<>("firm"));
+        addressCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+        eyeColorCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+        hairColorCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+        heightCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+        weightCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+        balanceCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+        userIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         // populate the table with the customer list data
         customerTable.getItems().addAll(customerList);
     }
