@@ -8,11 +8,18 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +28,10 @@ import java.util.ResourceBundle;
 
 
 public class LeaseAgreementFormController implements Initializable {
+    public ImageView agreementFormCustomerSingnatureImageView;
+    public ImageView deputyFormDeputySingnatureImageView;
+    public ImageView agreementDocumentDeputySingnatureImageView;
+    public ImageView agreementDocumentCustomerSingnatureImageView;
     //For table view
     @FXML
     private AnchorPane tableContainer;
@@ -79,6 +90,8 @@ public class LeaseAgreementFormController implements Initializable {
     private Customer customer;
     private BoxModel box;
     private Integer generatedBoxNo;
+    private Image customerSignature;
+    private Image deputySignature;
     //
 
 
@@ -274,7 +287,7 @@ public class LeaseAgreementFormController implements Initializable {
         });
     }
 
-//    private void generatePDF() {
+    //    private void generatePDF() {
 //        // create a new PDF document
 //        PDDocument document = new PDDocument();
 //
@@ -312,5 +325,34 @@ public class LeaseAgreementFormController implements Initializable {
 //            e.printStackTrace();
 //        }
 //    }
-
+    @FXML
+    private void onCustomerSignetureImageSelected(MouseEvent mouseEvent) {
+        FileChooser.ExtensionFilter imageFilter =
+                new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.jpeg", "*.png", "*.gif");
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().add(imageFilter);
+        Scene currentScene = tabPane.getScene();
+        Stage currentStage = (Stage) currentScene.getWindow();
+        File selectedFile = fileChooser.showOpenDialog(currentStage);
+        if (selectedFile != null) {
+            Image image = new Image(selectedFile.toURI().toString());
+            agreementFormCustomerSingnatureImageView.setImage(image);
+            agreementDocumentCustomerSingnatureImageView.setImage(image);
+        }
+    }
+    @FXML
+    private void onDeputySignetureImageSelected(MouseEvent mouseEvent) {
+        FileChooser.ExtensionFilter imageFilter =
+                new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.jpeg", "*.png", "*.gif");
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().add(imageFilter);
+        Scene currentScene = tabPane.getScene();
+        Stage currentStage = (Stage) currentScene.getWindow();
+        File selectedFile = fileChooser.showOpenDialog(currentStage);
+        if (selectedFile != null) {
+            Image image = new Image(selectedFile.toURI().toString());
+            deputyFormDeputySingnatureImageView.setImage(image);
+            agreementDocumentDeputySingnatureImageView.setImage(image);
+        }
+    }
 }

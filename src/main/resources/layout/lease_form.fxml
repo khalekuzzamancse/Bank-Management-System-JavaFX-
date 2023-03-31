@@ -69,7 +69,9 @@
                     <TextField fx:id="lesseeIDTextField" prefHeight="35.0" prefWidth="169.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="0" />
                     <TextField fx:id="boxNumberTextField" layoutX="140.0" layoutY="10.0" prefHeight="50.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="1" />
                     <TextField fx:id="durationTextField" layoutX="140.0" layoutY="10.0" prefHeight="50.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="2" />
-                    <ImageView id="customerSingnatureImageView" fitHeight="39.0" fitWidth="50.0" pickOnBounds="true" scaleX="5.0" smooth="false" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="4">
+                    <ImageView fx:id="agreementFormCustomerSingnatureImageView"
+                               onMouseClicked="#onCustomerSignetureImageSelected"
+                               fitHeight="39.0" fitWidth="50.0" pickOnBounds="true" scaleX="5.0" smooth="false" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="4">
                         <image>
                             <Image url="@../images/customer_signature.png" />
                         </image>
@@ -104,7 +106,8 @@
                     <TextField fx:id="addressField" prefHeight="32.0" prefWidth="371.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="2" />
                     <TextField fx:id="nameField" layoutX="140.0" layoutY="10.0" prefHeight="50.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="1" />
                     <TextField fx:id="phoneField" layoutX="140.0" layoutY="10.0" prefHeight="31.0" prefWidth="377.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="3" />
-               <ImageView fitHeight="63.0" fitWidth="278.0" pickOnBounds="true" smooth="false" GridPane.columnIndex="2" GridPane.rowIndex="4">
+               <ImageView fx:id="deputyFormDeputySingnatureImageView" onMouseClicked="#onDeputySignetureImageSelected"
+                          fitHeight="63.0" fitWidth="278.0" pickOnBounds="true" smooth="false" GridPane.columnIndex="2" GridPane.rowIndex="4">
                   <image>
                      <Image url="@../images/nominee_signature.png" />
                   </image>
@@ -128,7 +131,7 @@
                 </TextFlow>
 
                 <HBox>
-                    <ImageView fitHeight="61.0" fitWidth="158.0">
+                    <ImageView  fx:id="agreementDocumentCustomerSingnatureImageView" fitHeight="61.0" fitWidth="158.0">
                         <image>
                             <Image url="@../images/customer_signature.png" />
                         </image>
@@ -136,7 +139,7 @@
                             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                         </HBox.margin>
                     </ImageView>
-                    <ImageView fitHeight="61.0" fitWidth="150.0">
+                    <ImageView fx:id="agreementDocumentDeputySingnatureImageView" fitHeight="61.0" fitWidth="150.0">
                         <image>
                             <Image url="@../images/nominee_signature.png" />
                         </image>
