@@ -108,6 +108,7 @@ public class ViewsController implements Initializable {
         initializeCustomerTab();
         initializeVisitTab();
         initializeLeaseTab();
+        initializeHistoryTab();
     }
 
     public void initializeVisitTab() {
@@ -154,8 +155,10 @@ public class ViewsController implements Initializable {
         historyTabCustomerID.setCellValueFactory(new PropertyValueFactory<>("customerID"));
         historyTabBoxNo.setCellValueFactory(new PropertyValueFactory<>("boxNumber"));
         historyTabRentDate.setCellValueFactory(new PropertyValueFactory<>("rentDate"));
+
         List<HistoryCard> historyCardList = new ArrayList<>();
         historyCardList = Fao.read(TableName.HISTORY_CARD_TABLE);
+        System.out.println(historyCardList);
         historyCardTable.getItems().addAll(historyCardList);
     }
 

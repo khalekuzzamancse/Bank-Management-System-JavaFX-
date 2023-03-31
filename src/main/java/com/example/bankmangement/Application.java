@@ -16,27 +16,15 @@ public class Application extends javafx.application.Application {
 //        FXMLLoader fxmlLoader =
 //                new FXMLLoader(Application.class.getResource("/layout/customer_view.fxml"));
         FXMLLoader fxmlLoader =
-                new FXMLLoader(Application.class.getResource("/layout/views.fxml"));
+                new FXMLLoader(Application.class.getResource(Layouts.VIWES));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
-
 
 //        // prevent the user from resizing the window
 //        stage.setMinWidth(400);
 //        stage.setMinHeight(300);
-//
-//        //stage.setScene(new LoginScreen().getScene());
-//        stage.setScene(new AddAccountScreen(stage).getScene());
-        //  stage.setScene(new AddBoxScreen().getScene());
         stage.sizeToScene();
         stage.show();
-
-
-//        DemoData.addDemoData();
-//        DemoData.printAllTable();
-//           DemoData.addCustomer();
-        //    DemoData.addCustome r();
-        //DemoData.readCustomers();
 
 
     }

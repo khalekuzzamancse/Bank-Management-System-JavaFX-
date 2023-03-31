@@ -41,6 +41,10 @@ public class LeaseAgreementFormController implements Initializable {
     public ImageView deputyFormDeputySingnatureImageView;
     public ImageView agreementDocumentDeputySingnatureImageView;
     public ImageView agreementDocumentCustomerSingnatureImageView;
+    public ImageView attendeSignatureImageView;
+
+    @FXML
+    private Button agreementTabconfirmButton;
     //For table view
     @FXML
     private AnchorPane tableContainer;
@@ -101,6 +105,9 @@ public class LeaseAgreementFormController implements Initializable {
     private Integer generatedBoxNo;
     private Image customerSignature;
     private Image deputySignature;
+    private Image attendeeSignature;
+    //
+
     //
 
     String expireDate;
@@ -369,8 +376,24 @@ public class LeaseAgreementFormController implements Initializable {
         }
     }
 
+    @FXML
+    private void onAttendeeSignetureImageSelected(MouseEvent mouseEvent) {
+        FileChooser.ExtensionFilter imageFilter =
+                new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.jpeg", "*.png", "*.gif");
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().add(imageFilter);
+        Scene currentScene = tabPane.getScene();
+        Stage currentStage = (Stage) currentScene.getWindow();
+        File selectedFile = fileChooser.showOpenDialog(currentStage);
+        if (selectedFile != null) {
+            Image image = new Image(selectedFile.toURI().toString());
+            attendeeSignature = image;
+            attendeSignatureImageView.setImage(image);
+        }
+    }
+
     @
-    FXML
+            FXML
     private void insertToDatabase(ActionEvent event) {
         // Fao.write(TableName.LEASE_TABLE, new Lease(23, 1, image2, 1, "1", "1"));
         if (deputySignature != null) {
@@ -385,9 +408,9 @@ public class LeaseAgreementFormController implements Initializable {
                     deputySignature
             );
             System.out.println(lease);
-            Fao.write(TableName.LEASE_TABLE,lease);
-        }
-        else {
+            //   Fao.write(TableName.LEASE_TABLE, lease);
+            addHistoryCard();
+        } else {
             Lease lease = new Lease(
                     customer.getUserID(), box.getNewPrice(), customerSignature,
                     generatedBoxNo,
@@ -395,10 +418,19 @@ public class LeaseAgreementFormController implements Initializable {
                     expireDate
             );
             System.out.println(lease);
-            Fao.write(TableName.LEASE_TABLE,lease);
+            //  Fao.write(TableName.LEASE_TABLE, lease);
+            addHistoryCard();
         }
 
 
+    }
+
+    private void addHistoryCard() {
+        HistoryCard card = new HistoryCard
+                (generatedBoxNo, customer.getUserID(),
+                        DateTimeUtils.getCurrentDate(), attendeeSignature
+                );
+        Fao.write(TableName.HISTORY_CARD_TABLE, card);
 
     }
 }
