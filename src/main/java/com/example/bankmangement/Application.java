@@ -13,14 +13,6 @@ public class Application extends javafx.application.Application {
     @Override
     public void start(Stage stage) throws Exception {
         stage.setTitle("Bank Management System");
-
-//        FXMLLoader fxmlLoader =
-//                new FXMLLoader(Application.class.getResource("/layout/customer_view.fxml"));
-//        FXMLLoader fxmlLoader =
-//                new FXMLLoader(Application.class.getResource(Layouts.VIWES));
-//        Scene scene = new Scene(fxmlLoader.load());
-//        stage.setScene(scene);
-
         Parent firstRoot = FXMLLoader.load(getClass().getResource(Layouts.LEASE_AGREEMENT));
         Scene firstScene = new Scene(firstRoot);
 
@@ -33,7 +25,6 @@ public class Application extends javafx.application.Application {
         firstStage.setMinHeight(300);
         firstStage.show();
 
-        // Load the second layout FXML file
         Parent secondRoot = FXMLLoader.load(getClass().getResource(Layouts.VIWES));
         Scene secondScene = new Scene(secondRoot);
 
@@ -45,11 +36,6 @@ public class Application extends javafx.application.Application {
         secondStage.setMinWidth(1000);
         secondStage.setMinHeight(300);
         secondStage.show();
-
-
-//        stage.sizeToScene();
-
-
 
     }
 
