@@ -29,17 +29,7 @@ public class Application extends javafx.application.Application {
         //  stage.setScene(new AddBoxScreen().getScene());
         stage.sizeToScene();
         stage.show();
-
-
-       DemoData.addData();
-
-//        List<HistoryCard> list = Fao.read("HistoryCard.dat");
-//
-//        System.out.println(list.size());
-//
-//        for (HistoryCard it : list) {
-//            System.out.println(it);
-//        }
+        DemoData.printAllTable();
 
 
     }
