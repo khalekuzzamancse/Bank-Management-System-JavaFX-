@@ -15,7 +15,7 @@ public class Application extends javafx.application.Application {
         stage.setTitle("Bank Management System");
 
         FXMLLoader fxmlLoader =
-                new FXMLLoader(Application.class.getResource("/layout/add_account_layout.fxml"));
+                new FXMLLoader(Application.class.getResource("/layout/customer_view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
 
