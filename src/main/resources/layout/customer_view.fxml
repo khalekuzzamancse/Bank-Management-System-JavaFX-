@@ -14,17 +14,17 @@
                AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
                AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" prefHeight="400" prefWidth="600">
         <columns>
-            <TableColumn fx:id="nameCol" text="Name" />
-            <TableColumn fx:id="emailCol" text="Email" />
-            <TableColumn fx:id="phoneCol" text="Phone" />
-            <TableColumn fx:id="firmCol" text="Firm" />
+            <TableColumn fx:id="nameCol" text="UserID" />
+            <TableColumn fx:id="emailCol" text="Name" />
+            <TableColumn fx:id="phoneCol" text="Balance" />
+            <TableColumn fx:id="firmCol" text="Email" />
             <TableColumn fx:id="addressCol" text="Address" />
             <TableColumn fx:id="eyeColorCol" text="Eye Color" />
             <TableColumn fx:id="hairColorCol" text="Hair Color" />
             <TableColumn fx:id="heightCol" text="Height" />
             <TableColumn fx:id="weightCol" text="Weight" />
-            <TableColumn fx:id="balanceCol" text="Balance" />
-            <TableColumn fx:id="userIdCol" text="User ID" />
+            <TableColumn fx:id="balanceCol" text="Phone No" />
+            <TableColumn fx:id="userIdCol" text="Firm" />
         </columns>
     </TableView>
 </AnchorPane>
