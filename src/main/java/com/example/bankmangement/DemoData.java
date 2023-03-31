@@ -43,6 +43,32 @@ public class DemoData {
         }
     }
 
+    public static void addCustomer() {
+        Customer customer1 = new Customer("John Doe", "johndoe@example.com", "555-555-5555", "ABC Company",
+                "123 Main St", "Brown", "Black", "6'2\"", "180 lbs", 1000.0);
+        Fao.write(TableName.CUSTOMER_TABLE, customer1);
+        Customer customer2 = new Customer("Jane Smith", "janesmith@example.com", "555-555-5556", "XYZ Corporation",
+                "456 Elm St", "Blue", "Blonde", "5'7\"", "150 lbs", 2500.0);
+        Fao.write(TableName.CUSTOMER_TABLE, customer2);
+        Customer customer3 = new Customer("Bob Johnson", "bjohnson@example.com", "555-555-5557", "Acme Corp",
+                "789 Maple Ave", "Green", "Brown", "5'11\"", "200 lbs", 500.0);
+        Fao.write(TableName.CUSTOMER_TABLE, customer3);
+        Customer customer4 = new Customer("Samantha Lee", "samlee@example.com", "555-555-5558", "123 Industries",
+                "321 Oak St", "Hazel", "Red", "5'5\"", "120 lbs", 1500.0);
+        Fao.write(TableName.CUSTOMER_TABLE, customer4);
+        Customer customer5 = new Customer("Tom Wilson", "twilson@example.com", "555-555-5559", "GHI Enterprises",
+                "987 Pine Rd", "Gray", "Salt-and-Pepper", "6'0\"", "175 lbs", 750.0);
+        Fao.write(TableName.CUSTOMER_TABLE, customer5);
+    }
+
+    public static void readCustomers() {
+        List<Customer> list = Fao.read(TableName.CUSTOMER_TABLE);
+        System.out.println(TableName.CUSTOMER_TABLE + " size :" + list.size());
+        for (Customer it : list) {
+            System.out.println(it);
+        }
+    }
+
     public static void printAllTable() {
         printLeaseTable();
         System.out.println("------------------");

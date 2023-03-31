@@ -31,6 +31,8 @@ public class Application extends javafx.application.Application {
         stage.show();
 //        DemoData.addDemoData();
 //        DemoData.printAllTable();
+     //   DemoData.addCustomer();
+      //  DemoData.readCustomers();
 
 
     }
