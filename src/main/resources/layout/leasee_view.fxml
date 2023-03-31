@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+
+    <TableView fx:id="leaseTable" layoutX="20.0" layoutY="20.0" prefHeight="360.0" prefWidth="560.0">
+        <columns>
+            <TableColumn text="ID" prefWidth="50.0" fx:id="idColumn"/>
+            <TableColumn text="Lessee ID" prefWidth="100.0" fx:id="lesseeIDColumn"/>
+            <TableColumn text="Customer ID" prefWidth="100.0" fx:id="customerIDColumn"/>
+            <TableColumn text="Deposit Amount" prefWidth="120.0" fx:id="depositAmountColumn"/>
+            <TableColumn text="Box Number" prefWidth="80.0" fx:id="boxNumberColumn"/>
+            <TableColumn text="Rent Date" prefWidth="100.0" fx:id="rentDateColumn"/>
+            <TableColumn text="Expire Date" prefWidth="100.0" fx:id="expireDateColumn"/>
+            <TableColumn text="Has Deputy" prefWidth="80.0" fx:id="hasDeputyColumn"/>
+            <TableColumn text="Deputy Name" prefWidth="100.0" fx:id="deputyNameColumn"/>
+            <TableColumn text="Deputy Address" prefWidth="120.0" fx:id="deputyAddressColumn"/>
+            <TableColumn text="Deputy Phone Number" prefWidth="120.0" fx:id="deputyPhoneNumberColumn"/>
+        </columns>
+    </TableView>
+
+</AnchorPane>

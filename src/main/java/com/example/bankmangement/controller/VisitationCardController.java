@@ -1,5 +1,6 @@
 package com.example.bankmangement.controller;
 
+import com.example.bankmangement.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -22,7 +23,9 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class VisitationCardController implements Initializable {
@@ -87,6 +90,8 @@ public class VisitationCardController implements Initializable {
     @FXML
     private TabPane tabPane;
     private Stage myStage;
+    //
+    private Lease lease;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -137,8 +142,17 @@ public class VisitationCardController implements Initializable {
         cardTabAsDeputyCheckBox.setSelected(formAsDeputyCheckBox.isSelected());
         cardTabVisitDateText.setText(getTodayDate());
         cardTabVisitTimeText.setText(getCurrentTime());
-        if (signature != null)
+        if (signature != null){
             descriptionTabTodaySignature.setImage(signature);
+        }
+        List<Lease> leaseList = new ArrayList<>();
+        leaseList = Fao.read(TableName.LEASE_TABLE);
+        System.out.println(leaseList);
+        Integer boxNo = Integer.parseInt(boxNoTextField.getText());
+//        //87
+        lease = FileUtils.getObjectByField("boxNumber", boxNo, leaseList);
+        descriptionTabSignature.setImage(lease.getCustomerSignature());
+
         moveToNextTab();
     }
 

@@ -16,7 +16,7 @@ public class Application extends javafx.application.Application {
 //        FXMLLoader fxmlLoader =
 //                new FXMLLoader(Application.class.getResource("/layout/customer_view.fxml"));
         FXMLLoader fxmlLoader =
-                new FXMLLoader(Application.class.getResource("/layout/lease_form.fxml"));
+                new FXMLLoader(Application.class.getResource("/layout/visitation_card.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
 
