@@ -5,6 +5,7 @@ import com.example.bankmangement.entity.BoxModel;
 import com.example.bankmangement.entity.Customer;
 import com.example.bankmangement.entity.HistoryCard;
 import com.example.bankmangement.entity.Lease;
+import com.example.bankmangement.utils.Alert;
 import com.example.bankmangement.utils.DateTimeUtils;
 import com.example.bankmangement.utils.DemoData;
 import com.example.bankmangement.utils.Fao;
@@ -205,21 +206,21 @@ public class LeaseAgreementFormController implements Initializable {
         //960370
         customer = FileUtils.getObjectByField("userID", customerID, customerList);
         if (customer != null) {
-            System.out.printf(customer.toString());
+            Alert.showAlert("Customer Name: " + customer.getName());
             goNextTab();
         } else {
             //to avoid null pointer exeption,if the customer is null then
             //initailze with empty object
             customer = new Customer();
-            System.out.println("Not Found");
+            Alert.showAlert("Customer not found");
         }
         ///
         Integer boxID = Integer.parseInt(boxNumberTextField.getText());
         box = FileUtils.getObjectByField("id", boxID, DemoData.getBoxList());
         if (box != null) {
-            System.out.println(box);
+            Alert.showAlert("New price: " + box.getNewPrice() + "$" + "\n" + "Old price : " + box.getOldPrice());
         } else {
-            System.out.println("Box not found");
+            Alert.showAlert("Box not found");
         }
 
 
@@ -401,7 +402,6 @@ public class LeaseAgreementFormController implements Initializable {
     @
             FXML
     private void insertToDatabase(ActionEvent event) {
-        // Fao.write(TableName.LEASE_TABLE, new Lease(23, 1, image2, 1, "1", "1"));
         if (deputySignature != null) {
             Lease lease = new Lease(
                     customer.getUserID(), box.getNewPrice(), customerSignature,
@@ -414,7 +414,7 @@ public class LeaseAgreementFormController implements Initializable {
                     deputySignature
             );
             System.out.println(lease);
-            //   Fao.write(TableName.LEASE_TABLE, lease);
+            Fao.write(TableName.LEASE_TABLE, lease);
             addHistoryCard();
         } else {
             Lease lease = new Lease(
@@ -424,7 +424,7 @@ public class LeaseAgreementFormController implements Initializable {
                     expireDate
             );
             System.out.println(lease);
-            //  Fao.write(TableName.LEASE_TABLE, lease);
+            Fao.write(TableName.LEASE_TABLE, lease);
             addHistoryCard();
         }
 

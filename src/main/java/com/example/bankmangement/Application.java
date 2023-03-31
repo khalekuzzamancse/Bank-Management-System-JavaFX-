@@ -1,6 +1,7 @@
 package com.example.bankmangement;
 
 import com.example.bankmangement.constants.Layouts;
+import com.example.bankmangement.utils.DemoData;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -34,6 +35,19 @@ public class Application extends javafx.application.Application {
         secondStage.setMinWidth(1000);
         secondStage.setMinHeight(300);
         secondStage.show();
+
+        ///
+        Parent thirdRoot = FXMLLoader.load(getClass().getResource(Layouts.VISITATION));
+        Scene thirdScene = new Scene(thirdRoot);
+
+        // Create the second stage
+        Stage thirdStage = new Stage();
+        thirdStage.setTitle("Visitation");
+        thirdStage.setScene(thirdScene);
+        thirdStage.sizeToScene();
+        thirdStage.setMinWidth(500);
+        thirdStage.setMinHeight(300);
+        thirdStage.show();
 
     }
 

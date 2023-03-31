@@ -1,4 +1,4 @@
-package com.example.bankmangement;
+package com.example.bankmangement.utils;
 
 public class Alert {
     public static void showAlert(String msg){

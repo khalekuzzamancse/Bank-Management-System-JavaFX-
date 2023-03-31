@@ -43,7 +43,8 @@
                         <CheckBox fx:id="formAsDeputyCheckBox" mnemonicParsing="false" prefHeight="30.0" prefWidth="104.0" text="As Deputy" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                         <TextField fx:id="customerIDTextField" prefHeight="25.0" prefWidth="184.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="1" />
                         <TextField fx:id="boxNoTextField" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="2" />
-                        <ImageView fx:id="formSignatureImageView" fitHeight="91.0" fitWidth="263.0" onMouseClicked="#onCustomerSignetureImageSelected" pickOnBounds="true" smooth="false" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                        <ImageView fx:id="formSignatureImageView" fitHeight="91.0" fitWidth="263.0"
+                                   onMouseClicked="#onCustomerSignetureImageSelected" pickOnBounds="true" smooth="false" GridPane.columnIndex="2" GridPane.rowIndex="3">
                             <image>
                                 <Image url="@../images/customer_signature.png" />
                             </image>

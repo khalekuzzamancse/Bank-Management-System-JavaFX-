@@ -1,6 +1,6 @@
 package com.example.bankmangement.controller;
 
-import com.example.bankmangement.Alert;
+import com.example.bankmangement.utils.Alert;
 import com.example.bankmangement.constants.TableName;
 import com.example.bankmangement.entity.Lease;
 import com.example.bankmangement.entity.VisitationCard;
@@ -104,22 +104,6 @@ public class VisitationCardController implements Initializable {
         fileChooser = new FileChooser();
         fileChooser.setTitle("Open Image File");
 
-//        List<Rent> list = new ArrayList<>();
-//        try {
-//            list = LeaseFao.readFromFile();
-//            for (Rent it : list) {
-//                if(it.getHasDeputy())
-//                {
-//                    formSignatureImageView.setImage(it.getDeputySignature());
-//                }
-//            }
-//
-//        } catch (IOException | ClassNotFoundException e) {
-//            throw new RuntimeException(e);
-//        }
-
-
-        // Get the Scene object from the TabPane
 
 
         // Set up a listener for the scene property of the root pane
@@ -146,16 +130,20 @@ public class VisitationCardController implements Initializable {
         cardTabAsDeputyCheckBox.setSelected(formAsDeputyCheckBox.isSelected());
         cardTabVisitDateText.setText(getTodayDate());
         cardTabVisitTimeText.setText(getCurrentTime());
-        if (signature != null) {
             descriptionTabTodaySignature.setImage(signature);
-        }
+
         List<Lease> leaseList = new ArrayList<>();
         leaseList = Fao.read(TableName.LEASE_TABLE);
         Integer boxNo = Integer.parseInt(boxNoTextField.getText());
 //        //87
         lease = FileUtils.getObjectByField("boxNumber", boxNo, leaseList);
         if (lease != null) {
-            descriptionTabSignature.setImage(lease.getCustomerSignature());
+            if(formAsDeputyCheckBox.isSelected()){
+                descriptionTabSignature.setImage(lease.getDeputySignature());
+            }else {
+                descriptionTabSignature.setImage(lease.getCustomerSignature());
+            }
+
             moveToNextTab();
         } else {
             Alert.showAlert("Box not found\nCustomerID or Box number is incorrect");
