@@ -2,10 +2,9 @@ package com.example.bankmangement;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -14,8 +13,10 @@ public class Application extends javafx.application.Application {
     public void start(Stage stage) throws Exception {
         stage.setTitle("Bank Management System");
 
+//        FXMLLoader fxmlLoader =
+//                new FXMLLoader(Application.class.getResource("/layout/customer_view.fxml"));
         FXMLLoader fxmlLoader =
-                new FXMLLoader(Application.class.getResource("/layout/customer_view.fxml"));
+                new FXMLLoader(Application.class.getResource("/layout/lease_form.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
 
@@ -29,10 +30,12 @@ public class Application extends javafx.application.Application {
         //  stage.setScene(new AddBoxScreen().getScene());
         stage.sizeToScene();
         stage.show();
+
 //        DemoData.addDemoData();
 //        DemoData.printAllTable();
-     //   DemoData.addCustomer();
-      //  DemoData.readCustomers();
+//           DemoData.addCustomer();
+        //    DemoData.addCustomer();
+        //DemoData.readCustomers();
 
 
     }

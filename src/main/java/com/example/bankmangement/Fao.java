@@ -24,7 +24,7 @@ public class Fao<T extends Serializable> implements Serializable {
                 System.out.println("Successfully read  from:" + tableName);
             } catch (Exception e) {
                 System.out.println("Failed read  from:" + tableName);
-                e.getStackTrace();
+                e.printStackTrace();
             }
         }
         return list;

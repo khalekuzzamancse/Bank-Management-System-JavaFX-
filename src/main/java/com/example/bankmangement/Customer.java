@@ -120,4 +120,8 @@ public class Customer implements Serializable {
                 ", userID=" + userID +
                 '}';
     }
+    public Customer(){
+        //this no argument contrcutor will be created empty object
+        //when we find a object by it field
+    }
 }

@@ -48,4 +48,9 @@ public class HistoryCard implements Serializable {
     public void setAttendantSignatureImageData(ImageData attendantSignatureImageData) {
         this.attendantSignatureImageData = attendantSignatureImageData;
     }
+    public HistoryCard(){
+
+            //this no argument contrcutor will be created empty object
+            //when we find a object by it field
+    }
 }

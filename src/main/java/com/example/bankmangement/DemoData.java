@@ -1,7 +1,11 @@
 package com.example.bankmangement;
 
+import com.example.bankmangement.entity.BoxModel;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.image.Image;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class DemoData {
@@ -82,6 +86,15 @@ public class DemoData {
         System.out.println("------------------");
         System.out.println("\n");
 
+    }
+
+    public static List<BoxModel> getBoxList() {
+        return (FXCollections.observableArrayList(
+                new BoxModel(1, 3, 5, 10, 25),
+                new BoxModel(2, 5, 5, 25, 45),
+                new BoxModel(3, 3, 10, 30, 75),
+                new BoxModel(4, 5, 10, 40, 100)
+        ));
     }
 
 

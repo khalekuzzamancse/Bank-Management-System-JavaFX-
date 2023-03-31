@@ -56,6 +56,13 @@ public class CustomerController implements Initializable {
         customerList = new ArrayList<>();
         customerList=Fao.read(TableName.CUSTOMER_TABLE);
 
+        Customer customer = FileUtils.getObjectByField("userID", 960370, customerList);
+        if (customer != null)
+            System.out.printf(customer.toString());
+        else
+            System.out.println("Not Found");
+
+
     }
 
     @Override

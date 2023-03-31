@@ -1,5 +1,6 @@
 package com.example.bankmangement.controller;
 
+import com.example.bankmangement.*;
 import com.example.bankmangement.entity.BoxModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -7,31 +8,16 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
-import javafx.scene.SnapshotParameters;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.WritableImage;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 
-import java.io.File;
-import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 import java.util.ResourceBundle;
-
-
-import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.pdmodel.PDPage;
-import org.apache.pdfbox.pdmodel.PDPageContentStream;
-import org.apache.pdfbox.pdmodel.graphics.image.LosslessFactory;
-import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 
 
 public class LeaseAgreementFormController implements Initializable {
@@ -51,12 +37,12 @@ public class LeaseAgreementFormController implements Initializable {
     private TableColumn<BoxModel, Integer> oldPriceColumn;
     @FXML
     private TableColumn<BoxModel, Integer> newPriceColumn;
-    private final ObservableList<BoxModel> list = FXCollections.observableArrayList(
-            new BoxModel(1, 3, 5, 10, 25),
-            new BoxModel(2, 5, 5, 25, 45),
-            new BoxModel(3, 3, 10, 30, 75),
-            new BoxModel(4, 5, 10, 40, 100)
-    );
+//    List<BoxModel>  boxes= FXCollections.observableArrayList(
+//            new BoxModel(1, 3, 5, 10, 25),
+//            new BoxModel(2, 5, 5, 25, 45),
+//            new BoxModel(3, 3, 10, 30, 75),
+//            new BoxModel(4, 5, 10, 40, 100)
+//    );
 
 
     //
@@ -89,22 +75,26 @@ public class LeaseAgreementFormController implements Initializable {
 
     @FXML
     private Button nextButton2;
-//
+
+    private Customer customer;
+    private BoxModel box;
+    private Integer generatedBoxNo;
+    //
 
 
     @FXML
     private void onGenerate() {
-        String lessee = lesseeIDTextField.getText();
-        String boxNo = boxNumberTextField.getText();
+
+
+        String lesseeName = customer.getName();
         String duration = durationTextField.getText();
-
-
-        String lesseeName = "Md Jakaria";
-        String rentDate = "12-12-12";
-        String expireDate = "12-12-13";
-        String amount = "500";
-        String deputyName = "Khalek";
-
+        String rentDate = DateTimeUtils.getCurrentDate();
+        String expireDate = DateTimeUtils.geDateFromToday(Integer.parseInt(duration));
+        String deputyName = nameField.getText();
+        String amount = box.getNewPrice().toString();
+        //
+        generatedBoxNo = generateRandom();
+        String boxNo = String.valueOf(generatedBoxNo);
 
         String s = "Lease Agreement between " + lesseeName + "(Lessee) and Miami Bank (Lessor)" +
                 " for Safe Deposit Box #" + boxNo + " for the term of " + duration + " month," +
@@ -124,12 +114,22 @@ public class LeaseAgreementFormController implements Initializable {
         agrementText.setText(s);
 
         //moving the next tab
+        goNextTab();
+
+
+    }
+
+    private int generateRandom() {
+        Random rand = new Random();
+        return rand.nextInt(100);
+    }
+
+
+    private void goNextTab() {
         int nextTabIndex = tabPane.getSelectionModel().getSelectedIndex() + 1;
         if (nextTabIndex < tabPane.getTabs().size()) {
             tabPane.getSelectionModel().select(nextTabIndex);
         }
-
-
     }
 
     @Override
@@ -140,7 +140,7 @@ public class LeaseAgreementFormController implements Initializable {
         oldPriceColumn.setCellValueFactory(new PropertyValueFactory<BoxModel, Integer>("oldPrice"));
         newPriceColumn.setCellValueFactory(new PropertyValueFactory<BoxModel, Integer>("newPrice"));
         table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-        table.setItems(list);
+        table.setItems((ObservableList<BoxModel>) DemoData.getBoxList());
 
         table.setLayoutX((tableContainer.getWidth() - tableContainer.getWidth()) / 2);
         // center the label vertically
@@ -157,25 +157,44 @@ public class LeaseAgreementFormController implements Initializable {
 
     }
 
+    @FXML
+    private void onAgreementFormNextButtonClick(ActionEvent event) {
+
+        customer = new Customer();
+        String lesseeID = lesseeIDTextField.getText();
+        List<Customer> customerList = new ArrayList<>();
+        customerList = Fao.read(TableName.CUSTOMER_TABLE);
+        Integer customerID = Integer.parseInt(lesseeID);
+        //960370
+        customer = FileUtils.getObjectByField("userID", customerID, customerList);
+        if (customer != null) {
+            System.out.printf(customer.toString());
+            goNextTab();
+        } else {
+            //to avoid null pointer exeption,if the customer is null then
+            //initailze with empty object
+            customer = new Customer();
+            System.out.println("Not Found");
+        }
+        ///
+        Integer boxID = Integer.parseInt(boxNumberTextField.getText());
+        box = FileUtils.getObjectByField("id", boxID, DemoData.getBoxList());
+        if (box != null) {
+            System.out.println(box);
+        } else {
+            System.out.println("Box not found");
+        }
+
+
+    }
 
     @FXML
-    void handleNextButtonAction(ActionEvent event) {
-        int nextTabIndex = tabPane.getSelectionModel().getSelectedIndex() + 1;
-        if (nextTabIndex < tabPane.getTabs().size()) {
-            tabPane.getSelectionModel().select(nextTabIndex);
-        }
+    void onRentButtonClick(ActionEvent event) {
+        goNextTab();
     }
 
     @FXML
     private void onNextButton2() {
-        String name = nameField.getText();
-        String address = addressField.getText();
-        String phone = phoneField.getText();
-
-        System.out.println("Name: " + name);
-        System.out.println("Address: " + address);
-        System.out.println("Phone: " + phone);
-
         onGenerate();
         int nextTabIndex = tabPane.getSelectionModel().getSelectedIndex() + 1;
         if (nextTabIndex < tabPane.getTabs().size()) {

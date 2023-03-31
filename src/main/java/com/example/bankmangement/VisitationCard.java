@@ -100,5 +100,9 @@ public class VisitationCard implements Serializable {
         this.description = description;
     }
 
+    public VisitationCard(){
 
+        //this no argument contrcutor will be created empty object
+        //when we find a object by it field
+    }
 }

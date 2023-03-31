@@ -35,7 +35,7 @@
                 <TableColumn fx:id="newPriceColumn" prefWidth="100.0" resizable="false" text="New Price" />
             </columns>
         </TableView>
-            <Button fx:id="nextButton" layoutX="549.0" layoutY="344.0" mnemonicParsing="false" onAction="#handleNextButtonAction" text="Rent" />
+            <Button fx:id="nextButton" layoutX="549.0" layoutY="344.0" mnemonicParsing="false" onAction="#onRentButtonClick" text="Rent" />
         </AnchorPane>
         </Tab>
         <Tab text="Agreement Form">
@@ -74,7 +74,9 @@
                             <Image url="@../images/customer_signature.png" />
                         </image>
                     </ImageView>
-               <Button fx:id="nextButton1" mnemonicParsing="false" onAction="#handleNextButtonAction" prefHeight="24.0" prefWidth="87.0" text="Next" GridPane.columnIndex="5" GridPane.rowIndex="9" />
+               <Button fx:id="nextButton1"
+                       mnemonicParsing="false" onAction="#onAgreementFormNextButtonClick"
+                       prefHeight="24.0" prefWidth="87.0" text="Next" GridPane.columnIndex="5" GridPane.rowIndex="9" />
                 </GridPane>
 
         </Tab>
