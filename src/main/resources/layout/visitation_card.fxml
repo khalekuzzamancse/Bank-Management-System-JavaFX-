@@ -45,7 +45,7 @@
                         <TextField fx:id="boxNoTextField" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="2" />
                         <ImageView fx:id="formSignatureImageView" fitHeight="91.0" fitWidth="263.0" onMouseClicked="#onCustomerSignetureImageSelected" pickOnBounds="true" smooth="false" GridPane.columnIndex="2" GridPane.rowIndex="3">
                             <image>
-                                <Image url="@../Images/customer_signature.png" />
+                                <Image url="@../images/customer_signature.png" />
                             </image>
                         </ImageView>
                <Button fx:id="validateButton" mnemonicParsing="false" onAction="#onValidateButtonClick" text="Validate" GridPane.columnIndex="4" GridPane.rowIndex="7" />
@@ -85,14 +85,14 @@
                             <Label prefHeight="34.0" prefWidth="113.0" text="Signature" GridPane.columnIndex="1" />
                             <Label prefHeight="38.0" prefWidth="113.0" text="Today Signature" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                             <ImageView fx:id="descriptionTabSignature" fitHeight="54.0" fitWidth="265.0" pickOnBounds="true" smooth="false" GridPane.columnIndex="2" GridPane.columnSpan="2">
-                                <Image url="@../Images/customer_image.png" />
+                                <Image url="@../images/customer_image.png" />
                             </ImageView>
                             <ImageView fx:id="descriptionTabTodaySignature" fitHeight="44.0" fitWidth="263.0" pickOnBounds="true" smooth="false" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                                <Image url="@../Images/customer_signature.png" />
+                                <Image url="@../images/customer_signature.png" />
                             </ImageView>
                             <ImageView fx:id="descriptionTabAttendantSignature" fitHeight="68.0" fitWidth="265.0" onMouseClicked="#onDescriptionTabAttendantSignature" pickOnBounds="true" smooth="false" GridPane.columnIndex="2" GridPane.rowIndex="2">
                                 <image>
-                                    <Image url="@../Images/customer_signature.png" />
+                                    <Image url="@../images/customer_signature.png" />
                                 </image>
                             </ImageView>
                             <Label prefHeight="29.0" prefWidth="118.0" text="Atteande Signature" GridPane.columnIndex="1" GridPane.rowIndex="2" />
@@ -132,7 +132,7 @@
                 <Label prefHeight="27.0" prefWidth="191.0" text="Miami Bank" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                 <ImageView fitHeight="45.0" fitWidth="113.0" pickOnBounds="true" smooth="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <image>
-                        <Image url="@../Images/images.png" />
+                        <Image url="@../images/images.png" />
                     </image>
                 </ImageView>
                 <Label prefHeight="25.0" prefWidth="100.0" text="Customer ID" GridPane.columnIndex="1" GridPane.rowIndex="4" />
@@ -149,10 +149,10 @@
                 <Text fx:id="cardTabVisitDateText" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="114.13671875" GridPane.columnIndex="2" GridPane.rowIndex="6" />
                 <Text fx:id="cardTabVisitTimeText" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="114.13671875" GridPane.columnIndex="2" GridPane.rowIndex="7" />
                 <ImageView fx:id="cardTabSignature" fitHeight="46.0" fitWidth="205.0" pickOnBounds="true" smooth="false" GridPane.columnIndex="2" GridPane.rowIndex="9">
-                    <Image url="@../Images/customer_signature.png" />
+                    <Image url="@../images/customer_signature.png" />
                 </ImageView>
                 <ImageView fx:id="cardTabAttendantSignature" fitHeight="49.0" fitWidth="209.0" pickOnBounds="true" smooth="false" GridPane.columnIndex="2" GridPane.rowIndex="11">
-                    <Image url="@../Images/customer_signature.png" />
+                    <Image url="@../images/customer_signature.png" />
                 </ImageView>
                 <Button fx:id="cardTabDoneButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="95.0" text="Done" GridPane.columnIndex="7" GridPane.rowIndex="14" />
             </GridPane>
