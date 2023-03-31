@@ -105,4 +105,18 @@ public class VisitationCard implements Serializable {
         //this no argument contrcutor will be created empty object
         //when we find a object by it field
     }
+
+    @Override
+    public String toString() {
+        return "VisitationCard{" +
+                "customerID=" + customerID +
+                ", boxNumber=" + boxNumber +
+                ", visitDate='" + visitDate + '\'' +
+                ", visitTime='" + visitTime + '\'' +
+                ", signatureImageData=" + signatureImageData +
+                ", attendantSignatureImageData=" + attendantSignatureImageData +
+                ", asDeputy=" + asDeputy +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }

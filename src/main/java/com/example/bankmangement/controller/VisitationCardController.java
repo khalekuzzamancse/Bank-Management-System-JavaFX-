@@ -1,6 +1,7 @@
 package com.example.bankmangement.controller;
 
 import com.example.bankmangement.*;
+import com.example.bankmangement.Alert;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -113,8 +114,6 @@ public class VisitationCardController implements Initializable {
 //        }
 
 
-
-
         // Get the Scene object from the TabPane
 
 
@@ -123,7 +122,7 @@ public class VisitationCardController implements Initializable {
             @Override
             public void changed(ObservableValue<? extends Scene> observable, Scene oldValue, Scene newValue) {
                 if (newValue != null) {
-                    Scene scene=newValue;
+                    Scene scene = newValue;
 
 
                 }
@@ -142,18 +141,21 @@ public class VisitationCardController implements Initializable {
         cardTabAsDeputyCheckBox.setSelected(formAsDeputyCheckBox.isSelected());
         cardTabVisitDateText.setText(getTodayDate());
         cardTabVisitTimeText.setText(getCurrentTime());
-        if (signature != null){
+        if (signature != null) {
             descriptionTabTodaySignature.setImage(signature);
         }
         List<Lease> leaseList = new ArrayList<>();
         leaseList = Fao.read(TableName.LEASE_TABLE);
-        System.out.println(leaseList);
         Integer boxNo = Integer.parseInt(boxNoTextField.getText());
 //        //87
         lease = FileUtils.getObjectByField("boxNumber", boxNo, leaseList);
-        descriptionTabSignature.setImage(lease.getCustomerSignature());
+        if (lease != null) {
+            descriptionTabSignature.setImage(lease.getCustomerSignature());
+            moveToNextTab();
+        } else {
+            Alert.showAlert("Box not found\nCustomerID or Box number is incorrect");
+        }
 
-        moveToNextTab();
     }
 
     @FXML
@@ -230,6 +232,16 @@ public class VisitationCardController implements Initializable {
 
         // currentStage.close();
 
+    }
+
+    @FXML
+    private void onDoneButtonClick(ActionEvent event) {
+        VisitationCard card = new VisitationCard
+                (Integer.parseInt(cardTabCustomerIDText.getText()), Integer.parseInt(cardTabBoxNoText.getText()),
+                        DateTimeUtils.getCurrentDate(), DateTimeUtils.getCurrentTime(),
+                        signature, attendantSignature, cardTabAsDeputyCheckBox.isSelected(), cardTabDescriptionText.getText());
+     System.out.println(card);
+        Fao.write(TableName.VISITATION_CARD_TABLE,card);
     }
 
     private void centerContain(Scene scene) {

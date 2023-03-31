@@ -154,7 +154,9 @@
                 <ImageView fx:id="cardTabAttendantSignature" fitHeight="49.0" fitWidth="209.0" pickOnBounds="true" smooth="false" GridPane.columnIndex="2" GridPane.rowIndex="11">
                     <Image url="@../images/customer_signature.png" />
                 </ImageView>
-                <Button fx:id="cardTabDoneButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="95.0" text="Done" GridPane.columnIndex="7" GridPane.rowIndex="14" />
+                <Button fx:id="cardTabDoneButton" mnemonicParsing="false" prefHeight="30.0"
+                        onAction="#onDoneButtonClick"
+                        prefWidth="95.0" text="Done" GridPane.columnIndex="7" GridPane.rowIndex="14" />
             </GridPane>
         </Tab>
     </tabs>
