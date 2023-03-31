@@ -103,6 +103,7 @@ public class LeaseAgreementFormController implements Initializable {
     private Image deputySignature;
     //
 
+    String expireDate;
 
     @FXML
     private void onGenerate() {
@@ -111,7 +112,7 @@ public class LeaseAgreementFormController implements Initializable {
         String lesseeName = customer.getName();
         String duration = durationTextField.getText();
         String rentDate = DateTimeUtils.getCurrentDate();
-        String expireDate = DateTimeUtils.geDateFromToday(Integer.parseInt(duration));
+        expireDate = DateTimeUtils.geDateFromToday(Integer.parseInt(duration));
         String deputyName = nameField.getText();
         String amount = box.getNewPrice().toString();
         //
@@ -297,7 +298,7 @@ public class LeaseAgreementFormController implements Initializable {
         });
     }
 
-        private void generatePDF() {
+    private void generatePDF() {
         // create a new PDF document
         PDDocument document = new PDDocument();
 
@@ -307,7 +308,6 @@ public class LeaseAgreementFormController implements Initializable {
 
         // create a new content stream for the page
         try (PDPageContentStream contentStream = new PDPageContentStream(document, page)) {
-
 
 
             // create a new JavaFX image from the AnchorPane and render it to the PDF page
@@ -333,7 +333,8 @@ public class LeaseAgreementFormController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        }
+    }
+
     @FXML
     private void onCustomerSignetureImageSelected(MouseEvent mouseEvent) {
         FileChooser.ExtensionFilter imageFilter =
@@ -345,10 +346,12 @@ public class LeaseAgreementFormController implements Initializable {
         File selectedFile = fileChooser.showOpenDialog(currentStage);
         if (selectedFile != null) {
             Image image = new Image(selectedFile.toURI().toString());
+            customerSignature = image;
             agreementFormCustomerSingnatureImageView.setImage(image);
             agreementDocumentCustomerSingnatureImageView.setImage(image);
         }
     }
+
     @FXML
     private void onDeputySignetureImageSelected(MouseEvent mouseEvent) {
         FileChooser.ExtensionFilter imageFilter =
@@ -360,8 +363,42 @@ public class LeaseAgreementFormController implements Initializable {
         File selectedFile = fileChooser.showOpenDialog(currentStage);
         if (selectedFile != null) {
             Image image = new Image(selectedFile.toURI().toString());
+            deputySignature = image;
             deputyFormDeputySingnatureImageView.setImage(image);
             agreementDocumentDeputySingnatureImageView.setImage(image);
         }
+    }
+
+    @
+    FXML
+    private void insertToDatabase(ActionEvent event) {
+        // Fao.write(TableName.LEASE_TABLE, new Lease(23, 1, image2, 1, "1", "1"));
+        if (deputySignature != null) {
+            Lease lease = new Lease(
+                    customer.getUserID(), box.getNewPrice(), customerSignature,
+                    generatedBoxNo,
+                    DateTimeUtils.getCurrentDate(),
+                    expireDate,
+                    nameField.getText(),
+                    addressField.getText(),
+                    phoneField.getText(),
+                    deputySignature
+            );
+            System.out.println(lease);
+            Fao.write(TableName.LEASE_TABLE,lease);
+        }
+        else {
+            Lease lease = new Lease(
+                    customer.getUserID(), box.getNewPrice(), customerSignature,
+                    generatedBoxNo,
+                    DateTimeUtils.getCurrentDate(),
+                    expireDate
+            );
+            System.out.println(lease);
+            Fao.write(TableName.LEASE_TABLE,lease);
+        }
+
+
+
     }
 }

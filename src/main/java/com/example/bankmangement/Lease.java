@@ -3,6 +3,7 @@ package com.example.bankmangement;
 import javafx.scene.image.Image;
 
 import java.io.Serializable;
+import java.util.Random;
 
 public class Lease implements Serializable {
     private Integer id;
@@ -27,11 +28,13 @@ public class Lease implements Serializable {
 
     public Lease(
             Integer customerID,
-                Integer depositAmount,
-                Image customerSignature,
-                Integer boxNumber,
-                String rentDate,
-                String expireDate) {
+            Integer depositAmount,
+            Image customerSignature,
+            Integer boxNumber,
+            String rentDate,
+            String expireDate) {
+        this.lesseeID = getAgreementID();
+        this.id = getAgreementID();
         this.customerID = customerID;
         this.depositAmount = depositAmount;
         this.customerSignature = customerSignature;
@@ -43,17 +46,20 @@ public class Lease implements Serializable {
         this.customerSignetureimageData = new ImageData(customerSignature);
     }
 
-    public Lease(Integer customerID,
-                 Integer depositAmount,
-                 Image customerSignature,
-                 Integer boxNumber,
-                 String rentDate,
-                 String expireDate,
-                 String deputyName,
-                 String deputyAddress,
-                 String deputyPhoneNumber,
-                 Image deputySignature
+    public Lease(
+            Integer customerID,
+            Integer depositAmount,
+            Image customerSignature,
+            Integer boxNumber,
+            String rentDate,
+            String expireDate,
+            String deputyName,
+            String deputyAddress,
+            String deputyPhoneNumber,
+            Image deputySignature
     ) {
+        this.lesseeID = getAgreementID();
+        this.id = getAgreementID();
         this.customerID = customerID;
         this.depositAmount = depositAmount;
         this.customerSignature = customerSignature;
@@ -196,5 +202,31 @@ public class Lease implements Serializable {
 //    public void setImageData(ImageData imageData) {
 //        this.imageData = imageData;
 //    }
+
+    @Override
+    public String toString() {
+        return "Lease{" +
+                "id=" + id +
+                ", lesseeID=" + lesseeID +
+                ", customerID=" + customerID +
+                ", depositAmount=" + depositAmount +
+                ", customerSignature=" + customerSignature +
+                ", boxNumber=" + boxNumber +
+                ", rentDate='" + rentDate + '\'' +
+                ", expireDate='" + expireDate + '\'' +
+                ", hasDeputy=" + hasDeputy +
+                ", deputyName='" + deputyName + '\'' +
+                ", deputyAddress='" + deputyAddress + '\'' +
+                ", deputyPhoneNumber='" + deputyPhoneNumber + '\'' +
+                ", deputySignature=" + deputySignature +
+                ", agreementID=" + agreementID +
+                '}';
+
+    }
+
+    private int generateRandom() {
+        Random rand = new Random();
+        return rand.nextInt(100);
+    }
 }
 
