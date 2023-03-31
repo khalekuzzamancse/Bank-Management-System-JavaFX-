@@ -1,8 +1,14 @@
 package com.example.bankmangement.controller;
 
-import com.example.bankmangement.*;
+import com.example.bankmangement.constants.TableName;
 import com.example.bankmangement.entity.BoxModel;
-import javafx.collections.FXCollections;
+import com.example.bankmangement.entity.Customer;
+import com.example.bankmangement.entity.HistoryCard;
+import com.example.bankmangement.entity.Lease;
+import com.example.bankmangement.utils.DateTimeUtils;
+import com.example.bankmangement.utils.DemoData;
+import com.example.bankmangement.utils.Fao;
+import com.example.bankmangement.utils.FileUtils;
 import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;

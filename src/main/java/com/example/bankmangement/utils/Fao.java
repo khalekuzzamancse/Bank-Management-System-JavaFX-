@@ -1,4 +1,4 @@
-package com.example.bankmangement;
+package com.example.bankmangement.utils;
 
 import java.io.*;
 import java.util.ArrayList;

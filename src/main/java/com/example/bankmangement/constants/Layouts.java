@@ -1,4 +1,4 @@
-package com.example.bankmangement;
+package com.example.bankmangement.constants;
 
 public interface Layouts {
     public static final String VIWES="/layout/views.fxml";

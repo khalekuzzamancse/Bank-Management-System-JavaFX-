@@ -1,5 +1,11 @@
-package com.example.bankmangement;
+package com.example.bankmangement.controller;
 
+import com.example.bankmangement.constants.TableName;
+import com.example.bankmangement.entity.Customer;
+import com.example.bankmangement.entity.HistoryCard;
+import com.example.bankmangement.entity.Lease;
+import com.example.bankmangement.entity.VisitationCard;
+import com.example.bankmangement.utils.Fao;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;

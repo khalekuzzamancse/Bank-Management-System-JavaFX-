@@ -1,4 +1,4 @@
-package com.example.bankmangement;
+package com.example.bankmangement.utils;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

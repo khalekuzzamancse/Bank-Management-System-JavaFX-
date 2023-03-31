@@ -1,4 +1,4 @@
-package com.example.bankmangement;
+package com.example.bankmangement.constants;
 
 public interface TableName {
     public static final String VISITATION_CARD_TABLE = "visitCardTable.dat";

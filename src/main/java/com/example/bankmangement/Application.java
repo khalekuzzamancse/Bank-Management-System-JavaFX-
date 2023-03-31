@@ -1,12 +1,10 @@
 package com.example.bankmangement;
 
+import com.example.bankmangement.constants.Layouts;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class Application extends javafx.application.Application {

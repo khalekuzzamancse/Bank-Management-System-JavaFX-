@@ -1,4 +1,4 @@
-package com.example.bankmangement;
+package com.example.bankmangement.entity;
 
 
 import javafx.scene.image.Image;

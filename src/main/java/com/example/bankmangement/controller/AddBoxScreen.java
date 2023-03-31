@@ -1,4 +1,4 @@
-package com.example.bankmangement;
+package com.example.bankmangement.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;

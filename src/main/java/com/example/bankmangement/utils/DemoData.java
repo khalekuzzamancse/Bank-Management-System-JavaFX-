@@ -1,11 +1,10 @@
-package com.example.bankmangement;
+package com.example.bankmangement.utils;
 
-import com.example.bankmangement.entity.BoxModel;
+import com.example.bankmangement.constants.TableName;
+import com.example.bankmangement.entity.*;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.scene.image.Image;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class DemoData {
