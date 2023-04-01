@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AddAccountScreen implements Initializable {
+public class AddAccountController implements Initializable {
 
 
     @FXML
@@ -49,24 +49,6 @@ public class AddAccountScreen implements Initializable {
 
     private Stage stage;
 
-//    public AddAccountScreen(Stage stage) throws IOException {
-//        //centering the content
-//        container = (GridPane) scene.lookup("#container");
-//
-//        container.setLayoutX((scene.getWidth() - container.getWidth()) / 2);
-//        // center the label vertically
-//        container.setLayoutY((scene.getHeight() - container.getHeight()) / 2);
-//        scene.widthProperty().addListener((obs, oldVal, newVal) -> {
-//            // center the label horizontally
-//            container.setLayoutX((newVal.doubleValue() - container.getWidth()) / 2);
-//        });
-//        scene.heightProperty().addListener((obs, oldVal, newVal) -> {
-//            // center the label vertically
-//            container.setLayoutY((newVal.doubleValue() - container.getHeight()) / 2);
-//        });
-//
-//
-//    }
 
     @FXML
     private void onAddClick(ActionEvent event) {
@@ -112,10 +94,30 @@ public class AddAccountScreen implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        container.sceneProperty().addListener((observable, oldValue, scene) -> {
+            if (scene != null) {
+                System.out.println(scene);
+                //when the scene is not null
+                //then we align the content is center
+                alignUIElementToCenter(scene);
+            }
+        });
     }
 
     private void insertToDatabase(Customer customer) {
         Fao.write(TableName.CUSTOMER_TABLE, customer);
+    }
+    private void alignUIElementToCenter(Scene scene) {
+        container.setLayoutX((scene.getWidth() - container.getWidth()) / 2);
+        // center the label vertically
+        container.setLayoutY((scene.getHeight() - container.getHeight()) / 2);
+        scene.widthProperty().addListener((obs, oldVal, newVal) -> {
+            // center the label horizontally
+            container.setLayoutX((newVal.doubleValue() - container.getWidth()) / 2);
+        });
+        scene.heightProperty().addListener((obs, oldVal, newVal) -> {
+            // center the label vertically
+            container.setLayoutY((newVal.doubleValue() - container.getHeight()) / 2);
+        });
     }
 }

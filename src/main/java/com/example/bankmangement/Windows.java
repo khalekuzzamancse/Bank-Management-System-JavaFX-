@@ -29,10 +29,10 @@ public class Windows {
         visitationWindow = getWindow(VISITATION, "Visitation", 500, 320);
         customerContactWindow = getWindow(CONTACT_TO_CUSTOMER, "Contact to customer", 500, 300);
         loginWindow = getWindow(LOGIN_LAYOUT, "Login", 600, 300);
-        addAccountWindow = getWindow(ADD_ACCOUNT, "Add Account", 500, 300);
+        addAccountWindow = getWindow(ADD_ACCOUNT, "Add Account", 800, 600);
     }
 
-    private static Stage getWindow(String layout, String title, Integer minSize, Integer maxSize) {
+    private static Stage getWindow(String layout, String title, Integer minWidth, Integer minHeight) {
         try {
             Parent firstRoot = FXMLLoader.load(Objects.requireNonNull(Windows.class.getResource(layout)));
             Scene scene = new Scene(firstRoot);
@@ -40,8 +40,8 @@ public class Windows {
             stage.setTitle(title);
             stage.setScene(scene);
             stage.sizeToScene();
-            stage.setMinWidth(minSize);
-            stage.setMinHeight(maxSize);
+            stage.setMinWidth(minWidth);
+            stage.setMinHeight(minHeight);
             return stage;
         } catch (IOException e) {
             System.out.println("Can not create Window");

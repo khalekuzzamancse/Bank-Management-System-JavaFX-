@@ -10,8 +10,8 @@ public class Application extends javafx.application.Application {
 //        Windows.getInstance().infoViewWindow().show();
 //        Windows.getInstance().customerContactWindow().show();
 //        Windows.getInstance().visitationWindow().show();
-        // Windows.getInstance().addAccountWindow().show();
-        Windows.getInstance().loginWindow().show();
+        Windows.getInstance().addAccountWindow().show();
+     //   Windows.getInstance().loginWindow().show();
 
     }
 
