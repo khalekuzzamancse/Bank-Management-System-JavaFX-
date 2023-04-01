@@ -13,7 +13,6 @@ public class Application extends javafx.application.Application {
         // Windows.getInstance().addAccountWindow().show();
         Windows.getInstance().loginWindow().show();
 
-
     }
 
 
