@@ -69,7 +69,7 @@ public class VisitationCardController implements Initializable {
     @FXML
     private Text cardTabBoxNoText;
     @FXML
-    private Text cardTabDescriptionText;
+    private TextArea cardTabDescriptionText;
     @FXML
     private Text cardTabCustomerIDText;
     @FXML
