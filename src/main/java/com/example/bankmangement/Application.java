@@ -12,17 +12,16 @@ public class Application extends javafx.application.Application {
     @Override
     public void start(Stage stage) throws Exception {
         stage.setTitle("Bank Management System");
-        Parent firstRoot = FXMLLoader.load(getClass().getResource(Layouts.LEASE_AGREEMENT));
-        Scene firstScene = new Scene(firstRoot);
-
-        // Create the first stage
-        Stage firstStage = new Stage();
-        firstStage.setTitle("Lease Agreement");
-        firstStage.setScene(firstScene);
-        firstStage.sizeToScene();
-        firstStage.setMinWidth(600);
-        firstStage.setMinHeight(300);
-        firstStage.show();
+//        Parent firstRoot = FXMLLoader.load(getClass().getResource(Layouts.LEASE_AGREEMENT));
+//        Scene firstScene = new Scene(firstRoot);
+//        // Create the first stage
+//        Stage firstStage = new Stage();
+//        firstStage.setTitle("Lease Agreement");
+//        firstStage.setScene(firstScene);
+//        firstStage.sizeToScene();
+//        firstStage.setMinWidth(600);
+//        firstStage.setMinHeight(300);
+//        firstStage.show();
 
         Parent secondRoot = FXMLLoader.load(getClass().getResource(Layouts.VIWES));
         Scene secondScene = new Scene(secondRoot);
@@ -37,19 +36,34 @@ public class Application extends javafx.application.Application {
         secondStage.show();
 
         ///
-        Parent thirdRoot = FXMLLoader.load(getClass().getResource(Layouts.VISITATION));
-        Scene thirdScene = new Scene(thirdRoot);
+//        Parent thirdRoot = FXMLLoader.load(getClass().getResource(Layouts.VISITATION));
+//        Scene thirdScene = new Scene(thirdRoot);
+//
+//        // Create the second stage
+//        Stage thirdStage = new Stage();
+//        thirdStage.setTitle("Visitation");
+//        thirdStage.setScene(thirdScene);
+//        thirdStage.sizeToScene();
+//        thirdStage.setMinWidth(500);
+//        thirdStage.setMinHeight(300);
+//        thirdStage.show();
+
+        //4 th stage
+        Parent fourthRoot = FXMLLoader.load(getClass().getResource(Layouts.CONTACT_TO_CUSTOMER));
+        Scene fourthScene = new Scene(fourthRoot);
 
         // Create the second stage
-        Stage thirdStage = new Stage();
-        thirdStage.setTitle("Visitation");
-        thirdStage.setScene(thirdScene);
-        thirdStage.sizeToScene();
-        thirdStage.setMinWidth(500);
-        thirdStage.setMinHeight(300);
-        thirdStage.show();
+        Stage fourthStage = new Stage();
+        fourthStage.setTitle("Visitation");
+        fourthStage.setScene(fourthScene);
+        fourthStage.sizeToScene();
+        fourthStage.setMinWidth(500);
+        fourthStage.setMinHeight(300);
+        fourthStage.show();
+
 
     }
+
 
     public static void main(String[] args) {
         launch(args);

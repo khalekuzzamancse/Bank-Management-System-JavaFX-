@@ -6,6 +6,6 @@ public interface Layouts {
     public static final String ADD_ACCOUNT="/layout/add_account_layout.fxml";
     public static final String LOGIN_LAYOUT="/layout/login_layout.fxml";
     public static final String VISITATION="/layout/visitation_card.fxml";
-
+    public static final String CONTACT_TO_CUSTOMER="/layout/contact_to_customer.fxml";
 
 }
