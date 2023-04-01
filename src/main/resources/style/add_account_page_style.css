@@ -33,7 +33,7 @@ TextField {
     -fx-prompt-text-fill: #a9a9a9; /* Set prompt text color */
     -fx-background-color: #fff; /* Set background color */
     -fx-border-width: 1px; /* Set border width */
-    -fx-border-color: #111111; /* Set border color */
+    -fx-border-color: #999999; /* Set border color */
     -fx-border-radius: 5px; /* Round corners */
     -fx-font-family: "Roboto", sans-serif; /* Set font family */
     -fx-text-fill: #424242; /* Set text color */
