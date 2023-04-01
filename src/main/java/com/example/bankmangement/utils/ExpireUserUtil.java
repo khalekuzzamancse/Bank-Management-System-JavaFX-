@@ -1,4 +1,4 @@
-package com.example.bankmangement;
+package com.example.bankmangement.utils;
 
 import com.example.bankmangement.constants.TableName;
 import com.example.bankmangement.entity.Customer;

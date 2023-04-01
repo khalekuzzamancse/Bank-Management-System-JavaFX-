@@ -1,6 +1,6 @@
 package com.example.bankmangement.controller;
 
-import com.example.bankmangement.ExpireUserUtil;
+import com.example.bankmangement.utils.ExpireUserUtil;
 import com.example.bankmangement.constants.TableName;
 import com.example.bankmangement.entity.Customer;
 import com.example.bankmangement.entity.ExpireUser;
@@ -15,7 +15,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
 import java.util.List;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ContactToCustomerController implements Initializable {

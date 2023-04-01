@@ -39,8 +39,8 @@
                 <GridPane layoutX="22.0" layoutY="22.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="358.0" prefWidth="576.0">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="118.0" minWidth="10.0" prefWidth="27.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="180.0" minWidth="10.0" prefWidth="105.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="131.0" minWidth="10.0" prefWidth="25.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="180.0" minWidth="10.0" prefWidth="95.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="131.0" minWidth="10.0" prefWidth="21.0" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="206.0" minWidth="10.0" prefWidth="192.0" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="98.0" minWidth="10.0" prefWidth="77.0" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="105.0" minWidth="10.0" prefWidth="97.0" />
@@ -64,7 +64,7 @@
                     <TextField fx:id="lesseeIDTextField" prefHeight="35.0" prefWidth="169.0" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="1" />
                     <TextField fx:id="boxNumberTextField" layoutX="140.0" layoutY="10.0" prefHeight="50.0" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="2" />
                     <TextField fx:id="durationTextField" layoutX="140.0" layoutY="10.0" prefHeight="50.0" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="3" />
-                    <ImageView fx:id="agreementFormCustomerSingnatureImageView" fitHeight="57.0" fitWidth="40.0" onMouseClicked="#onCustomerSignetureImageSelected" pickOnBounds="true" scaleX="5.0" smooth="false" GridPane.columnIndex="4" GridPane.rowIndex="4">
+                    <ImageView fx:id="agreementFormCustomerSingnatureImageView" fitHeight="72.0" fitWidth="185.0" onMouseClicked="#onCustomerSignetureImageSelected" pickOnBounds="true" smooth="false" GridPane.columnIndex="3" GridPane.rowIndex="4">
                         <image>
                             <Image url="@../images/customer_signature.png" />
                         </image>
@@ -73,6 +73,8 @@
          <Label prefHeight="20.0" prefWidth="31.0" text=":" GridPane.columnIndex="2" GridPane.rowIndex="1" />
          <Label layoutX="128.0" layoutY="14.0" prefHeight="20.0" prefWidth="31.0" text=":" GridPane.columnIndex="2" GridPane.rowIndex="2" />
          <Label layoutX="128.0" layoutY="49.0" prefHeight="20.0" prefWidth="31.0" text=":" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+         <Label prefHeight="32.0" prefWidth="98.0" text="Signature" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+         <Label prefHeight="38.0" prefWidth="18.0" text=":" GridPane.columnIndex="2" GridPane.rowIndex="4" />
                 </GridPane>
 
         </Tab>
@@ -80,9 +82,9 @@
                 <GridPane layoutX="10.0" layoutY="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="302.0" prefWidth="603.0">
                     <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="119.0" minWidth="10.0" prefWidth="21.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="116.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="296.0" minWidth="10.0" prefWidth="17.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="327.0" minWidth="10.0" prefWidth="206.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="129.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="296.0" minWidth="10.0" prefWidth="11.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="327.0" minWidth="10.0" prefWidth="189.0" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="105.0" minWidth="10.0" prefWidth="97.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.0" minWidth="10.0" prefWidth="110.0" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="76.0" minWidth="10.0" prefWidth="52.0" />
@@ -102,7 +104,7 @@
                     <TextField fx:id="addressField" prefHeight="32.0" prefWidth="371.0" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="2" />
                     <TextField fx:id="nameField" layoutX="140.0" layoutY="10.0" prefHeight="50.0" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="1" />
                     <TextField fx:id="phoneField" layoutX="140.0" layoutY="10.0" prefHeight="31.0" prefWidth="377.0" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="3" />
-               <ImageView fx:id="deputyFormDeputySingnatureImageView" fitHeight="63.0" fitWidth="278.0" onMouseClicked="#onDeputySignetureImageSelected" pickOnBounds="true" smooth="false" GridPane.columnIndex="3" GridPane.rowIndex="4">
+               <ImageView fx:id="deputyFormDeputySingnatureImageView" fitHeight="63.0" fitWidth="266.0" onMouseClicked="#onDeputySignetureImageSelected" pickOnBounds="true" smooth="false" GridPane.columnIndex="3" GridPane.rowIndex="4">
                   <image>
                      <Image url="@../images/nominee_signature.png" />
                   </image>
@@ -111,6 +113,8 @@
          <Label prefHeight="30.0" prefWidth="23.0" text=":" GridPane.columnIndex="2" GridPane.rowIndex="1" />
          <Label layoutX="131.0" layoutY="42.0" prefHeight="30.0" prefWidth="23.0" text=":" GridPane.columnIndex="2" GridPane.rowIndex="2" />
          <Label layoutX="131.0" layoutY="80.0" prefHeight="30.0" prefWidth="23.0" text=":" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+         <Label prefHeight="35.0" prefWidth="137.0" text="Deputy Signature" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+         <Label prefHeight="33.0" prefWidth="25.0" text=":" GridPane.columnIndex="2" GridPane.rowIndex="4" />
                <padding>
                   <Insets top="10.0" />
                </padding>
