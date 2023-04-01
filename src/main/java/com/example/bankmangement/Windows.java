@@ -27,7 +27,7 @@ public class Windows {
         leaseAgreementWindow = getWindow(LEASE_AGREEMENT, "Lease Agreement", 600, 300);
         viewWindow = getWindow(VIWES, "View Info", 1000, 300);
         visitationWindow = getWindow(VISITATION, "Visitation", 500, 320);
-        customerContactWindow = getWindow(CONTACT_TO_CUSTOMER, "Contact to customer", 500, 300);
+        customerContactWindow = getWindow(CONTACT_TO_CUSTOMER, "Contact to customer", 700, 500);
         loginWindow = getWindow(LOGIN_LAYOUT, "Login", 600, 300);
         addAccountWindow = getWindow(ADD_ACCOUNT, "Add Account", 800, 600);
     }
