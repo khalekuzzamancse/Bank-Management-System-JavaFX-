@@ -24,7 +24,7 @@ public class Windows {
     private Stage addAccountWindow;
 
     private Windows() {
-        leaseAgreementWindow = getWindow(LEASE_AGREEMENT, "Lease Agreement", 600, 300);
+        leaseAgreementWindow = getWindow(LEASE_AGREEMENT, "Lease Agreement", 600, 500);
         viewWindow = getWindow(VIWES, "View Info", 1000, 300);
         visitationWindow = getWindow(VISITATION, "Visitation", 700, 500);
         customerContactWindow = getWindow(CONTACT_TO_CUSTOMER, "Contact to customer", 700, 500);
