@@ -1,5 +1,4 @@
-d
-/* Set background image for the container */
+
 #parent {
    -fx-background-color: linear-gradient(#52c2b8, #0a6b66);
 
@@ -20,7 +19,7 @@ d
      -fx-padding: 5px;
     -fx-border-radius: 5px;
     -fx-font-size: 14px;
- 9
+
 }
 /* Style the username and password input fields */
 #passwordField {

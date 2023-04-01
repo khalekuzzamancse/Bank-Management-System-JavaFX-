@@ -10,7 +10,9 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane fx:id="parent" prefHeight="333.0" prefWidth="505.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="parent" prefHeight="333.0" prefWidth="505.0"
+            stylesheets="@style.css"
+            xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <GridPane fx:id="container" layoutX="127.0" layoutY="72.0">
             <columnConstraints>
