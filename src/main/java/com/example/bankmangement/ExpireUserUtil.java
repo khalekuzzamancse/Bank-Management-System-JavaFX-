@@ -4,6 +4,7 @@ import com.example.bankmangement.constants.TableName;
 import com.example.bankmangement.entity.Customer;
 import com.example.bankmangement.entity.ExpireUser;
 import com.example.bankmangement.entity.Lease;
+import com.example.bankmangement.utils.DateTimeUtils;
 import com.example.bankmangement.utils.Fao;
 
 import java.util.*;
@@ -17,12 +18,12 @@ public class ExpireUserUtil {
 //    now i want to create a separate list of List<ExpireUser>,where
 //    the ExpireUser class have the field the customerID,name,email,boxNumber, and the expireDate,give  the code using javastream
 
-    public static List<ExpireUser> getExpireUsers(String expireDate) {
+    public static List<ExpireUser> getExpireUsers() {
 
         List<Customer> customerList = Fao.read(TableName.CUSTOMER_TABLE);
         List<Lease> leaseList = Fao.read(TableName.LEASE_TABLE);
-        //expireDate = "2023-08-31";
-
+        String expireDate="2023-08-31";
+      //  String expireDate = DateTimeUtils.geDateFromToday(1);
         // Filter leases with given expire date and map to ExpireUser
         List<ExpireUser> expireUserList = leaseList.stream()
                 .filter(l -> l.getExpireDate().equals(expireDate))
@@ -39,7 +40,7 @@ public class ExpireUserUtil {
                     );
                 })
                 .toList();
-        System.out.println(expireUserList);
+        //System.out.println(expireUserList);
         return expireUserList;
     }
 }

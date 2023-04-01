@@ -71,17 +71,16 @@
                     <Label prefHeight="28.0" prefWidth="81.0" text="Subject" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                     <TextArea fx:id="expireNoticeTabMessageTextArea" prefHeight="71.0" prefWidth="453.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                     <Label prefHeight="47.0" prefWidth="86.0" text="Message" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                    <Button fx:id="expireNoticeTabSendButton"
-                            onAction="#onExpireUserTabSendButtonClick"
-                            mnemonicParsing="false" prefHeight="25.0" prefWidth="73.0"
-                            text="Send" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                    <Button fx:id="expireNoticeTabSendButton" mnemonicParsing="false" onAction="#onExpireUserTabSendButtonClick" prefHeight="25.0" prefWidth="73.0" text="Send" GridPane.columnIndex="3" GridPane.rowIndex="5" />
                     <TextField fx:id="expireNoticeTabSubjectTextField" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                 </GridPane>
                 <TableView fx:id="expireCustomerTable" prefHeight="251.0" prefWidth="600">
                     <columns>
                         <TableColumn fx:id="expireCustomerTableCustomerID" text="ID" />
-                        <TableColumn fx:id="expireCustomerTableCustomerEmail" prefWidth="157.0" text="Email" />
-                        <TableColumn fx:id="expireCustomerTableExpireDate" minWidth="0.0" prefWidth="89.0" text="Expire Date" />
+                        <TableColumn fx:id="expireCustomerTableName" minWidth="0.0" prefWidth="154.0" text="Name" />
+                        <TableColumn fx:id="expireCustomerTableCustomerEmail" prefWidth="148.0" text="Email" />
+                        <TableColumn fx:id="expireCustomerTableBoxNo" prefWidth="68.0" text="Box No." />
+                        <TableColumn fx:id="expireCustomerTableExpireDate" minWidth="0.0" prefWidth="149.0" text="Expire Date" />
                     </columns>
                <VBox.margin>
                   <Insets bottom="10.0" top="10.0" />

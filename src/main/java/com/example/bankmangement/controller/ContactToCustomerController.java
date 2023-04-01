@@ -1,5 +1,6 @@
 package com.example.bankmangement.controller;
 
+import com.example.bankmangement.ExpireUserUtil;
 import com.example.bankmangement.constants.TableName;
 import com.example.bankmangement.entity.Customer;
 import com.example.bankmangement.entity.ExpireUser;
@@ -29,8 +30,11 @@ public class ContactToCustomerController implements Initializable {
     public TableColumn<ExpireUser, Integer> expireCustomerTableCustomerID;
     public TableColumn<ExpireUser, String> expireCustomerTableCustomerEmail;
     public TableColumn<ExpireUser, String> expireCustomerTableExpireDate;
-//
-List<ExpireUser> users = new ArrayList<>();
+    public TableColumn<ExpireUser, String> expireCustomerTableName;
+    public TableColumn<ExpireUser, Integer> expireCustomerTableBoxNo;
+    //
+    private List<ExpireUser> expireUsers;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initializeExpireCustomerTab();
@@ -57,8 +61,12 @@ List<ExpireUser> users = new ArrayList<>();
     @FXML
     private void onExpireUserTabSendButtonClick(ActionEvent event) {
         String subject = expireNoticeTabSubjectTextField.getText();
-        String message = expireNoticeTabMessageTextArea.getText();
-        System.out.println(subject + "\n" + message);
+        String msg = expireNoticeTabMessageTextArea.getText();
+        for (ExpireUser user : expireUsers) {
+            String message = generateMessage(user) + "\n" + msg;
+            System.out.println(subject + "\n" + message);
+        }
+
 
     }
 
@@ -66,11 +74,20 @@ List<ExpireUser> users = new ArrayList<>();
         expireCustomerTableCustomerID.setCellValueFactory(new PropertyValueFactory<>("customerID"));
         expireCustomerTableCustomerEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         expireCustomerTableExpireDate.setCellValueFactory(new PropertyValueFactory<>("expireDate"));
-        //
-//        users.add(new ExpireUser(1, "1", "1"));
-//        expireCustomerTable.getItems().addAll(users);
+        expireCustomerTableName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        expireCustomerTableBoxNo.setCellValueFactory(new PropertyValueFactory<>("boxNumber"));
+        //  System.out.println(users);
+        expireUsers = ExpireUserUtil.getExpireUsers();
+        expireCustomerTable.getItems().addAll(expireUsers);
 
     }
 
+    private String generateMessage(ExpireUser user) {
+        return ("Dear, " + user.getName() + "." +
+                "\n" +
+                "your box(number=" + user.getBoxNumber() + ") " +
+                "will be expired on " + user.getExpireDate()+"."
+        );
+    }
 
 }
