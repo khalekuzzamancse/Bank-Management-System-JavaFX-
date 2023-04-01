@@ -4,17 +4,18 @@ import com.example.bankmangement.ExpireUserUtil;
 import com.example.bankmangement.constants.TableName;
 import com.example.bankmangement.entity.Customer;
 import com.example.bankmangement.entity.ExpireUser;
-import com.example.bankmangement.utils.*;
-import com.example.bankmangement.utils.Alert;
-import javafx.event.ActionEvent;
+import com.example.bankmangement.utils.AlertUtil;
+import com.example.bankmangement.utils.Fao;
+import com.example.bankmangement.utils.FileUtils;
+import com.example.bankmangement.utils.SendMailUtil;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ContactToCustomerController implements Initializable {
@@ -36,29 +37,32 @@ public class ContactToCustomerController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+//
         initializeExpireCustomerTab();
     }
 
     @FXML
-    private void onSendEmailTabSendButtonClick(ActionEvent event) {
+    private void onSendEmailTabSendButtonClick() {
+
+
         String subject = sendEmailTabSubjectField.getText();
         String message = sendEmailTabMessageTextArea.getText();
         //
-        List<Customer> customerList = new ArrayList<>();
+        List<Customer> customerList;
         customerList = Fao.read(TableName.CUSTOMER_TABLE);
         Integer customerID = Integer.parseInt(sendEmailTabCustomerIDTextField.getText());
         Customer customer = FileUtils.getObjectByField("userID", customerID, customerList);
         if (customer != null) {
             System.out.println(subject + "\n" + message);
-            Alert.showAlert("Customer Name: " + customer.getName() + "\n" + "Email: " + customer.getEmail());
+            AlertUtil.showAlert("Customer Name: " + customer.getName() + "\n" + "Email: " + customer.getEmail());
         } else {
-            Alert.showAlert("Customer not found");
+            AlertUtil.showAlert("Customer not found");
         }
 
     }
 
     @FXML
-    private void onExpireUserTabSendButtonClick(ActionEvent event) {
+    private void onExpireUserTabSendButtonClick() {
         String subject = expireNoticeTabSubjectTextField.getText();
         String msg = expireNoticeTabMessageTextArea.getText();
 

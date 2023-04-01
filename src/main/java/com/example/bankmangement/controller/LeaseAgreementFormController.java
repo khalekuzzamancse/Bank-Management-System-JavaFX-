@@ -5,11 +5,7 @@ import com.example.bankmangement.entity.BoxModel;
 import com.example.bankmangement.entity.Customer;
 import com.example.bankmangement.entity.HistoryCard;
 import com.example.bankmangement.entity.Lease;
-import com.example.bankmangement.utils.Alert;
-import com.example.bankmangement.utils.DateTimeUtils;
-import com.example.bankmangement.utils.DemoData;
-import com.example.bankmangement.utils.Fao;
-import com.example.bankmangement.utils.FileUtils;
+import com.example.bankmangement.utils.*;
 import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
@@ -25,6 +21,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -37,10 +34,7 @@ import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.ResourceBundle;
+import java.util.*;
 
 
 public class LeaseAgreementFormController implements Initializable {
@@ -49,6 +43,7 @@ public class LeaseAgreementFormController implements Initializable {
     public ImageView agreementDocumentDeputySingnatureImageView;
     public ImageView agreementDocumentCustomerSingnatureImageView;
     public ImageView attendeSignatureImageView;
+    public VBox tabLeaseeAgreement;
 
     @FXML
     private Button agreementTabconfirmButton;
@@ -206,21 +201,21 @@ public class LeaseAgreementFormController implements Initializable {
         //960370
         customer = FileUtils.getObjectByField("userID", customerID, customerList);
         if (customer != null) {
-            Alert.showAlert("Customer Name: " + customer.getName());
+            AlertUtil.showAlert("Customer Name: " + customer.getName());
             goNextTab();
         } else {
             //to avoid null pointer exeption,if the customer is null then
             //initailze with empty object
             customer = new Customer();
-            Alert.showAlert("Customer not found");
+            AlertUtil.showAlert("Customer not found");
         }
         ///
         Integer boxID = Integer.parseInt(boxNumberTextField.getText());
         box = FileUtils.getObjectByField("id", boxID, DemoData.getBoxList());
         if (box != null) {
-            Alert.showAlert("New price: " + box.getNewPrice() + "$" + "\n" + "Old price : " + box.getOldPrice());
+            AlertUtil.showAlert("New price: " + box.getNewPrice() + "$" + "\n" + "Old price : " + box.getOldPrice());
         } else {
-            Alert.showAlert("Box not found");
+            AlertUtil.showAlert("Box not found");
         }
 
 
@@ -312,42 +307,6 @@ public class LeaseAgreementFormController implements Initializable {
         });
     }
 
-    private void generatePDF() {
-        // create a new PDF document
-        PDDocument document = new PDDocument();
-
-        // create a new page in the document
-        PDPage page = new PDPage();
-        document.addPage(page);
-
-        // create a new content stream for the page
-        try (PDPageContentStream contentStream = new PDPageContentStream(document, page)) {
-
-
-            // create a new JavaFX image from the AnchorPane and render it to the PDF page
-            WritableImage image = container.snapshot(new SnapshotParameters(), null);
-            PDImageXObject xImage = LosslessFactory.createFromImage(document, SwingFXUtils.fromFXImage(image, null));
-            contentStream.drawImage(xImage, 0, 0, page.getMediaBox().getWidth(), page.getMediaBox().getHeight());
-
-            // close the content stream
-            contentStream.close();
-
-            // show a file chooser dialog to save the PDF file
-            FileChooser fileChooser = new FileChooser();
-            fileChooser.setTitle("Save PDF");
-            fileChooser.setInitialFileName("document.pdf");
-            File outputFile = fileChooser.showSaveDialog(new Stage());
-
-            if (outputFile != null) {
-                // save the PDF document to the selected file
-                document.save(outputFile);
-                document.close();
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     @FXML
     private void onCustomerSignetureImageSelected(MouseEvent mouseEvent) {
@@ -399,9 +358,27 @@ public class LeaseAgreementFormController implements Initializable {
         }
     }
 
-    @
-            FXML
-    private void insertToDatabase(ActionEvent event) {
+    @FXML
+    private void onConfirmButtonClick(ActionEvent event) {
+      insertToDatabase();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation Dialog");
+        alert.setHeaderText("Save as pdf?");
+        //   alert.setContentText("This action cannot be undone.");
+
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            //hiding the conifirm button so that it not shown in the pdf
+            agreementTabconfirmButton.setVisible(false);
+            new PdfUtil().generatePDF(tabLeaseeAgreement);
+            //
+            agreementTabconfirmButton.setVisible(true);
+        }
+
+    }
+
+    private void insertToDatabase() {
         if (deputySignature != null) {
             Lease lease = new Lease(
                     customer.getUserID(), box.getNewPrice(), customerSignature,
@@ -427,8 +404,6 @@ public class LeaseAgreementFormController implements Initializable {
             Fao.write(TableName.LEASE_TABLE, lease);
             addHistoryCard();
         }
-
-
     }
 
     private void addHistoryCard() {
@@ -439,4 +414,6 @@ public class LeaseAgreementFormController implements Initializable {
         Fao.write(TableName.HISTORY_CARD_TABLE, card);
 
     }
+
+
 }

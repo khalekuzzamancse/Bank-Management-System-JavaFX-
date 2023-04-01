@@ -1,12 +1,9 @@
 package com.example.bankmangement.controller;
 
-import com.example.bankmangement.utils.Alert;
+import com.example.bankmangement.utils.*;
 import com.example.bankmangement.constants.TableName;
 import com.example.bankmangement.entity.Lease;
 import com.example.bankmangement.entity.VisitationCard;
-import com.example.bankmangement.utils.DateTimeUtils;
-import com.example.bankmangement.utils.Fao;
-import com.example.bankmangement.utils.FileUtils;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -29,13 +26,11 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class VisitationCardController implements Initializable {
 
+    public GridPane cardTabGrid;
     @FXML
     private GridPane fromGrid;
     @FXML
@@ -105,7 +100,6 @@ public class VisitationCardController implements Initializable {
         fileChooser.setTitle("Open Image File");
 
 
-
         // Set up a listener for the scene property of the root pane
         tabPane.sceneProperty().addListener(new ChangeListener<Scene>() {
             @Override
@@ -130,7 +124,7 @@ public class VisitationCardController implements Initializable {
         cardTabAsDeputyCheckBox.setSelected(formAsDeputyCheckBox.isSelected());
         cardTabVisitDateText.setText(getTodayDate());
         cardTabVisitTimeText.setText(getCurrentTime());
-            descriptionTabTodaySignature.setImage(signature);
+        descriptionTabTodaySignature.setImage(signature);
 
         List<Lease> leaseList = new ArrayList<>();
         leaseList = Fao.read(TableName.LEASE_TABLE);
@@ -138,15 +132,15 @@ public class VisitationCardController implements Initializable {
 //        //87
         lease = FileUtils.getObjectByField("boxNumber", boxNo, leaseList);
         if (lease != null) {
-            if(formAsDeputyCheckBox.isSelected()){
+            if (formAsDeputyCheckBox.isSelected()) {
                 descriptionTabSignature.setImage(lease.getDeputySignature());
-            }else {
+            } else {
                 descriptionTabSignature.setImage(lease.getCustomerSignature());
             }
 
             moveToNextTab();
         } else {
-            Alert.showAlert("Box not found\nCustomerID or Box number is incorrect");
+            AlertUtil.showAlert("Box not found\nCustomerID or Box number is incorrect");
         }
 
     }
@@ -233,8 +227,23 @@ public class VisitationCardController implements Initializable {
                 (Integer.parseInt(cardTabCustomerIDText.getText()), Integer.parseInt(cardTabBoxNoText.getText()),
                         DateTimeUtils.getCurrentDate(), DateTimeUtils.getCurrentTime(),
                         signature, attendantSignature, cardTabAsDeputyCheckBox.isSelected(), cardTabDescriptionText.getText());
-     System.out.println(card);
-        Fao.write(TableName.VISITATION_CARD_TABLE,card);
+        System.out.println(card);
+        Fao.write(TableName.VISITATION_CARD_TABLE, card);
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation Dialog");
+        alert.setHeaderText("Save as pdf?");
+        //   alert.setContentText("This action cannot be undone.");
+
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            //before creating pdf hiding the done button
+            cardTabDoneButton.setVisible(false);
+            new PdfUtil().generatePDF(cardTabGrid);
+            cardTabDoneButton.setVisible(true);
+        }
+
     }
 
     private void centerContain(Scene scene) {

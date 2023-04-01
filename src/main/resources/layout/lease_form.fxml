@@ -117,7 +117,7 @@
                 </GridPane>
         </Tab>
         <Tab text="Lease Agreement">
-            <VBox>
+            <VBox fx:id="tabLeaseeAgreement">
                 <TextFlow fx:id="attendeeSignatureImageView" lineSpacing="5.0" prefHeight="378.0" prefWidth="566.0" textAlignment="JUSTIFY">
                     <Text fx:id="agrementText" text="-" wrappingWidth="52.94140625">
                         <font>
@@ -152,7 +152,7 @@
                         </HBox.margin>
                         <Image url="@../images/attandee_signature.png"/>
                     </ImageView>
-               <Button fx:id="agreementTabconfirmButton" mnemonicParsing="false" onAction="#insertToDatabase" text="Confirm">
+               <Button fx:id="agreementTabconfirmButton" mnemonicParsing="false" onAction="#onConfirmButtonClick" text="Confirm">
                   <HBox.margin>
                      <Insets left="10.0" top="50.0" />
                   </HBox.margin></Button>
