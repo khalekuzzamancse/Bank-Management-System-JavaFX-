@@ -4,9 +4,8 @@ import com.example.bankmangement.ExpireUserUtil;
 import com.example.bankmangement.constants.TableName;
 import com.example.bankmangement.entity.Customer;
 import com.example.bankmangement.entity.ExpireUser;
+import com.example.bankmangement.utils.*;
 import com.example.bankmangement.utils.Alert;
-import com.example.bankmangement.utils.Fao;
-import com.example.bankmangement.utils.FileUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -62,12 +61,15 @@ public class ContactToCustomerController implements Initializable {
     private void onExpireUserTabSendButtonClick(ActionEvent event) {
         String subject = expireNoticeTabSubjectTextField.getText();
         String msg = expireNoticeTabMessageTextArea.getText();
+
         for (ExpireUser user : expireUsers) {
             String message = generateMessage(user) + "\n" + msg;
+            String receiver = user.getEmail();
+            //  String receiver="khalekuzzaman91@gmail.com";
             System.out.println(subject + "\n" + message);
+            new SendMailUtil().send(receiver, subject, msg);
+
         }
-
-
     }
 
     private void initializeExpireCustomerTab() {
@@ -86,7 +88,7 @@ public class ContactToCustomerController implements Initializable {
         return ("Dear, " + user.getName() + "." +
                 "\n" +
                 "your box(number=" + user.getBoxNumber() + ") " +
-                "will be expired on " + user.getExpireDate()+"."
+                "will be expired on " + user.getExpireDate() + "."
         );
     }
 

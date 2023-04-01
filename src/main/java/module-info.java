@@ -3,6 +3,7 @@ module com.example.bankmangement {
     requires javafx.fxml;
     requires org.apache.pdfbox;
     requires javafx.swing;
+    requires jakarta.mail;
 
 
     opens com.example.bankmangement to javafx.fxml;
