@@ -29,7 +29,8 @@ public class ContactToCustomerController implements Initializable {
     public TableColumn<ExpireUser, Integer> expireCustomerTableCustomerID;
     public TableColumn<ExpireUser, String> expireCustomerTableCustomerEmail;
     public TableColumn<ExpireUser, String> expireCustomerTableExpireDate;
-
+//
+List<ExpireUser> users = new ArrayList<>();
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initializeExpireCustomerTab();
@@ -65,9 +66,10 @@ public class ContactToCustomerController implements Initializable {
         expireCustomerTableCustomerID.setCellValueFactory(new PropertyValueFactory<>("customerID"));
         expireCustomerTableCustomerEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         expireCustomerTableExpireDate.setCellValueFactory(new PropertyValueFactory<>("expireDate"));
-        List<ExpireUser> users = new ArrayList<>();
-        users.add(new ExpireUser(1, "1", "1"));
-        expireCustomerTable.getItems().addAll(users);
+        //
+//        users.add(new ExpireUser(1, "1", "1"));
+//        expireCustomerTable.getItems().addAll(users);
+
     }
 
 
