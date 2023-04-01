@@ -5,7 +5,7 @@
 }
 
 /* Style for the grid pane */
-#container {
+GridPane {
     -fx-alignment: center; /* Center the grid pane */
     -fx-background-color: #fff; /* Set background color */
     -fx-padding: 40px;
@@ -39,8 +39,6 @@ TextField {
     -fx-text-fill: #424242; /* Set text color */
 }
 
-
-
 /* Style for the login button */
 Button {
     -fx-pref-height: 40px;
@@ -55,7 +53,6 @@ Button {
     -fx-font-family: "Roboto", sans-serif; /* Set font family */
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1); /* Add elevation */
 }
-
 
 Button:hover {
     -fx-background-color: #005b7f; /* Set background color */
