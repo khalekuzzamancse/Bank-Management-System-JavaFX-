@@ -6,57 +6,58 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="411.0" prefWidth="767.0" stylesheets="@../material_style/views_page_style.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bankmangement.controller.ViewsController">
-    <tabs>
-        <Tab text="Customers">
-            <TableView fx:id="customerTable" prefHeight="400" prefWidth="600" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                <columns>
-                    <TableColumn fx:id="nameCol" text="ID" />
-                    <TableColumn fx:id="emailCol" text="Name" />
-                    <TableColumn fx:id="firmCol" text="Email" />
-                    <TableColumn fx:id="addressCol" text="Address" />
-                    <TableColumn fx:id="eyeColorCol" text="Eye Color" />
-                    <TableColumn fx:id="phoneCol" text="Balance" />
-                    <TableColumn fx:id="hairColorCol" text="Hair Color" />
-                    <TableColumn fx:id="heightCol" text="Height" />
-                    <TableColumn fx:id="weightCol" text="Weight" />
-                    <TableColumn fx:id="balanceCol" text="Phone No" />
-                    <TableColumn fx:id="userIdCol" text="Firm" />
-                </columns>
-            </TableView>
-        </Tab>
-        <Tab text="Leases">
-            <TableView fx:id="leaseTabTable">
-                <columns>
-                    <TableColumn fx:id="leaseTabCustomerID" prefWidth="100" text="Customer ID" />
-                    <TableColumn fx:id="leaseTabBoxNo" prefWidth="100" text="Box Number" />
-                    <TableColumn fx:id="leaseVisitRentDate" prefWidth="150" text="Rent Date" />
-                    <TableColumn fx:id="leaseTabExpireDate" prefWidth="104.0" text="Expire Date" />
-                    <TableColumn fx:id="leaseTabAmount" prefWidth="66.0" text="Price" />
-                    <TableColumn fx:id="leaseTabDeputyName" prefWidth="103.0" text="Deputy Name" />
-                </columns>
-            </TableView>
-        </Tab>
-        <Tab text="Visiting Cards">
-            <TableView fx:id="visitingCardTabTable">
-                <columns>
-                    <TableColumn fx:id="visitingCardTabCustomerIDColumn" prefWidth="100" text="Customer ID" />
-                    <TableColumn fx:id="visitingCardTabBoxNumberColumn" prefWidth="100" text="Box Number" />
-                    <TableColumn fx:id="visitingCardTabVisitDateColumn" prefWidth="150" text="Visit Date" />
-                    <TableColumn fx:id="visitingCardTabVisitTimeColumn" prefWidth="81.0" text="Visit Time" />
-                    <TableColumn fx:id="visitingCardTabAsDeputyColumn" prefWidth="69.0" text="As Deputy" />
-                    <TableColumn fx:id="visitingCardTabDescriptionColumn" prefWidth="300.0" text="Description" />
-                </columns>
-            </TableView>
-        </Tab>
-        <Tab text="History Cards">
-            <TableView fx:id="historyCardTable">
-                <columns>
-                    <TableColumn fx:id="historyTabCustomerID" prefWidth="100" text="Customer ID" />
-                    <TableColumn fx:id="historyTabBoxNo" prefWidth="100" text="Box Number" />
-                    <TableColumn fx:id="historyTabRentDate" prefWidth="150" text="Rent Date" />
-                </columns>
-            </TableView>
-        </Tab>
-    </tabs>
+<TabPane
+       stylesheets="@../material_style/views_page_style.css" tabClosingPolicy="UNAVAILABLE"
+         xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+         fx:controller="com.example.bankmangement.controller.ViewsController">
+    <Tab text="Customers">
+        <TableView fx:id="customerTable">
+            <columns>
+                <TableColumn fx:id="nameCol" text="ID"/>
+                <TableColumn fx:id="emailCol" text="Name"/>
+                <TableColumn fx:id="firmCol" text="Email"/>
+                <TableColumn fx:id="addressCol" text="Address"/>
+                <TableColumn fx:id="eyeColorCol" text="Eye Color"/>
+                <TableColumn fx:id="phoneCol" text="Balance"/>
+                <TableColumn fx:id="hairColorCol" text="Hair Color"/>
+                <TableColumn fx:id="heightCol" text="Height"/>
+                <TableColumn fx:id="weightCol" text="Weight"/>
+                <TableColumn fx:id="balanceCol" text="Phone No"/>
+                <TableColumn fx:id="userIdCol" text="Firm"/>
+            </columns>
+        </TableView>
+    </Tab>
+    <Tab text="Leases">
+        <TableView fx:id="leaseTabTable">
+            <columns>
+                <TableColumn fx:id="leaseTabCustomerID" prefWidth="100" text="Customer ID"/>
+                <TableColumn fx:id="leaseTabBoxNo" prefWidth="100" text="Box Number"/>
+                <TableColumn fx:id="leaseVisitRentDate" prefWidth="150" text="Rent Date"/>
+                <TableColumn fx:id="leaseTabExpireDate" prefWidth="104.0" text="Expire Date"/>
+                <TableColumn fx:id="leaseTabAmount" prefWidth="66.0" text="Price"/>
+                <TableColumn fx:id="leaseTabDeputyName" prefWidth="103.0" text="Deputy Name"/>
+            </columns>
+        </TableView>
+    </Tab>
+    <Tab text="Visiting Cards">
+        <TableView fx:id="visitingCardTabTable">
+            <columns>
+                <TableColumn fx:id="visitingCardTabCustomerIDColumn"  text="Customer ID"/>
+                <TableColumn fx:id="visitingCardTabBoxNumberColumn" text="Box Number"/>
+                <TableColumn fx:id="visitingCardTabVisitDateColumn"  text="Visit Date"/>
+                <TableColumn fx:id="visitingCardTabVisitTimeColumn" text="Visit Time"/>
+                <TableColumn fx:id="visitingCardTabAsDeputyColumn" text="As Deputy"/>
+                <TableColumn fx:id="visitingCardTabDescriptionColumn"  text="Description"/>
+            </columns>
+        </TableView>
+    </Tab>
+    <Tab text="History Cards">
+        <TableView fx:id="historyCardTable">
+            <columns>
+                <TableColumn fx:id="historyTabCustomerID" text="Customer ID"/>
+                <TableColumn fx:id="historyTabBoxNo" text="Box Number"/>
+                <TableColumn fx:id="historyTabRentDate" text="Rent Date"/>
+            </columns>
+        </TableView>
+    </Tab>
 </TabPane>
