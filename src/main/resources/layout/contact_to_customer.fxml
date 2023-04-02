@@ -14,54 +14,37 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="518.0" prefWidth="749.0" stylesheets="@../material_style/contact_to_customer_style.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bankmangement.controller.ContactToCustomerController">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="518.0" prefWidth="749.0"
+         stylesheets="@../material_style/contact_to_customer_style.css"
+         tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/19"
+         xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bankmangement.controller.ContactToCustomerController">
     <Tab text="Send Email">
-        <GridPane layoutX="2.0" layoutY="31.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="394.0" prefWidth="630.0">
-
-            <Label  text="Subject" />
-            <Label  text="Message" GridPane.rowIndex="2" />
+        <GridPane>
+            <Label text="Subject" />
+            <Label text="Message" GridPane.rowIndex="2" />
             <TextArea fx:id="sendEmailTabMessageTextArea" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <Button fx:id="sendEmailTabSendButton"  mnemonicParsing="false" onAction="#onSendEmailTabSendButtonClick" text="Send" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <Button fx:id="sendEmailTabSendButton" mnemonicParsing="false"
+                    onAction="#onSendEmailTabSendButtonClick" text="Send" GridPane.columnIndex="3" GridPane.rowIndex="4" />
             <TextField fx:id="sendEmailTabSubjectField" GridPane.columnIndex="2" />
-            <Label  text="Customer ID" GridPane.rowIndex="1" />
+            <Label text="Customer ID" GridPane.rowIndex="1" />
             <TextField fx:id="sendEmailTabCustomerIDTextField" GridPane.columnIndex="2" GridPane.rowIndex="1" />
          <Label text=":" GridPane.columnIndex="1" />
-         <Label  text=":" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-         <Label  text=":" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         <Label text=":" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         <Label text=":" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
         </GridPane>
     </Tab>
     <Tab text="Expire Notice">
-        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+        <VBox >
 
-            <GridPane prefHeight="252.0" prefWidth="702.0">
-                <columnConstraints>
-                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="289.0" minWidth="10.0" prefWidth="29.0" />
-                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="581.0" minWidth="10.0" prefWidth="95.0" />
-               <ColumnConstraints hgrow="SOMETIMES" maxWidth="581.0" minWidth="10.0" prefWidth="30.0" />
-                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="581.0" minWidth="10.0" prefWidth="396.0" />
-               <ColumnConstraints hgrow="SOMETIMES" maxWidth="581.0" minWidth="10.0" prefWidth="39.0" />
-               <ColumnConstraints hgrow="SOMETIMES" maxWidth="581.0" minWidth="10.0" prefWidth="142.0" />
-                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="581.0" minWidth="10.0" prefWidth="46.0" />
-                </columnConstraints>
-                <rowConstraints>
-                    <RowConstraints maxHeight="39.0" minHeight="0.0" prefHeight="11.0" vgrow="SOMETIMES" />
-                    <RowConstraints maxHeight="46.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
-                    <RowConstraints maxHeight="72.0" minHeight="10.0" prefHeight="26.0" vgrow="SOMETIMES" />
-                    <RowConstraints maxHeight="93.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
-                    <RowConstraints maxHeight="88.0" minHeight="0.0" prefHeight="17.0" vgrow="SOMETIMES" />
-                    <RowConstraints maxHeight="88.0" minHeight="0.0" prefHeight="21.0" vgrow="SOMETIMES" />
-                    <RowConstraints maxHeight="88.0" minHeight="0.0" prefHeight="6.0" vgrow="SOMETIMES" />
-                </rowConstraints>
-                <VBox.margin>
-                    <Insets top="20.0" />
-                </VBox.margin>
-                <Label prefHeight="28.0" prefWidth="81.0" text="Subject" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                <TextArea fx:id="expireNoticeTabMessageTextArea" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="71.0" prefWidth="372.0" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-                <Label prefHeight="47.0" prefWidth="86.0" text="Message" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                <Button fx:id="expireNoticeTabSendButton" mnemonicParsing="false" onAction="#onExpireUserTabSendButtonClick" prefHeight="35.0" prefWidth="80.0" text="Send" GridPane.columnIndex="5" GridPane.rowIndex="5" />
-                <TextField fx:id="expireNoticeTabSubjectTextField" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <Label prefHeight="31.0" prefWidth="16.0" text=":" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Label prefHeight="29.0" prefWidth="16.0" text=":" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <GridPane  >
+                <Label  text="Subject" />
+                <TextArea fx:id="expireNoticeTabMessageTextArea"  wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                <Label text="Message" GridPane.rowIndex="1" />
+                <Button fx:id="expireNoticeTabSendButton"  mnemonicParsing="false" onAction="#onExpireUserTabSendButtonClick" text="Send" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                <TextField fx:id="expireNoticeTabSubjectTextField"  GridPane.columnIndex="2" />
+            <Label  text=":" GridPane.columnIndex="1" />
+            <Label  text=":" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             </GridPane>
             <TableView fx:id="expireCustomerTable" prefHeight="179.0" prefWidth="676.0">
                 <columns>
