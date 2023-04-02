@@ -22,6 +22,7 @@ public class Windows {
     private Stage customerContactWindow;
     private Stage loginWindow;
     private Stage addAccountWindow;
+    private Stage experimental;
 
     private Windows() {
         leaseAgreementWindow = getWindow(LEASE_AGREEMENT, "Lease Agreement", 600, 500);
@@ -30,6 +31,7 @@ public class Windows {
         customerContactWindow = getWindow(CONTACT_TO_CUSTOMER, "Contact to customer", 700, 500);
         loginWindow = getWindow(LOGIN_LAYOUT, "Login", 700, 300);
         addAccountWindow = getWindow(ADD_ACCOUNT, "Add Account", 800, 600);
+        experimental = getWindow("/layout/visitation_card_experimental.fxml", "experimentan", 400, 400);
     }
 
     private static Stage getWindow(String layout, String title, Integer minWidth, Integer minHeight) {
@@ -78,5 +80,9 @@ public class Windows {
 
     public Stage loginWindow() {
         return loginWindow;
+    }
+
+    public Stage getExperimental() {
+        return experimental;
     }
 }

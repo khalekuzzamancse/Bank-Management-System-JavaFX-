@@ -1,0 +1,39 @@
+
+ GridPane{
+    -fx-alignment: center; /* Center the grid pane */
+    -fx-background-color: #fff; /* Set background color */
+    -fx-padding: 40px;
+    -fx-spacing: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 5);
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+}
+
+/* Style for the labels */
+Label {
+     -fx-padding: 10px;
+    -fx-font-size: 15px; /* Set font size */
+    -fx-text-fill: #424242; /* Set text color */
+    -fx-font-family: "Roboto", sans-serif; /* Set font family */
+}
+
+
+/* Style for the login button */
+Button {
+
+    -fx-font-size: 12px; /* Set font size */
+    -fx-font-weight: bold; /* Set font weight */
+    -fx-background-color: #008CBA; /* Set background color */
+    -fx-text-fill: #fff; /* Set text color */
+    -fx-border-width: 0; /* Remove border */
+    -fx-border-radius: 5px; /* Round corners */
+    -fx-padding:2px; /* Set padding */
+    -fx-font-family: "Roboto", sans-serif; /* Set font family */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1); /* Add elevation */
+}
+
+TextArea{
+-fx-wrap-text:true;
+   -fx-pref-column-count:30;
+   -fx-pref-row-count:5;
+}
