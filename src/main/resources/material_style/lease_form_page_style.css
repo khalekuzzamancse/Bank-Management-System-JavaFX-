@@ -25,7 +25,6 @@ Label {
 
 /* Style for the text fields */
 TextField {
- -fx-pref-height: 30px;
     -fx-pref-width: 300px;
 
       -fx-padding: 10px;

@@ -21,6 +21,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
@@ -43,7 +44,7 @@ public class LeaseAgreementFormController implements Initializable {
     public ImageView agreementDocumentDeputySingnatureImageView;
     public ImageView agreementDocumentCustomerSingnatureImageView;
     public ImageView attendeSignatureImageView;
-    public VBox tabLeaseeAgreement;
+    public GridPane tabLeaseeAgreement;
 
     @FXML
     private Button agreementTabconfirmButton;

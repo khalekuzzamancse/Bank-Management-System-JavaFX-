@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
@@ -13,126 +12,111 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-<?import javafx.scene.text.TextFlow?>
 
-<TabPane fx:id="tabPane" layoutX="-3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="441.0" prefWidth="668.0" stylesheets="@../material_style/lease_form_page_style.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bankmangement.controller.LeaseAgreementFormController">
+<TabPane fx:id="tabPane" layoutX="-3.0" stylesheets="@../material_style/lease_form_page_style.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bankmangement.controller.LeaseAgreementFormController">
     <Tab text="Box Info">
         <AnchorPane fx:id="tableContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity">
             <TableView fx:id="table" layoutX="27.0" layoutY="59.0" prefHeight="229.0" prefWidth="550.0">
-            <columns>
-                <TableColumn fx:id="boxIDColumn" prefWidth="100.0" resizable="false" text="Box ID" />
-                <TableColumn fx:id="heightColumn" prefWidth="100.0" resizable="false" text="Height(Inch)" />
-                <TableColumn fx:id="widthColumn" prefWidth="100.0" resizable="false" text="Width(Inch)" />
-                <TableColumn fx:id="oldPriceColumn" prefWidth="100.0" resizable="false" text="Old Price" />
-                <TableColumn fx:id="newPriceColumn" prefWidth="100.0" resizable="false" text="New Price" />
-            </columns>
-        </TableView>
+                <columns>
+                    <TableColumn fx:id="boxIDColumn" prefWidth="100.0" resizable="false" text="Box ID" />
+                    <TableColumn fx:id="heightColumn" prefWidth="100.0" resizable="false" text="Height(Inch)" />
+                    <TableColumn fx:id="widthColumn" prefWidth="100.0" resizable="false" text="Width(Inch)" />
+                    <TableColumn fx:id="oldPriceColumn" prefWidth="100.0" resizable="false" text="Old Price" />
+                    <TableColumn fx:id="newPriceColumn" prefWidth="100.0" resizable="false" text="New Price" />
+                </columns>
+            </TableView>
             <Button fx:id="nextButton" layoutX="409.0" layoutY="294.0" mnemonicParsing="false" onAction="#onRentButtonClick" text="Rent" />
         </AnchorPane>
-        </Tab>
-        <Tab closable="false" text="Agreement Form">
-                <GridPane accessibleRole="TABLE_VIEW" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
-                    <Label text="Lessee ID" />
-                    <Label text="Box Number" GridPane.rowIndex="1" />
-                    <Label text="Duration" GridPane.rowIndex="2" />
-                    <TextField fx:id="lesseeIDTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" GridPane.columnIndex="2" />
-                    <TextField fx:id="boxNumberTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                    <TextField fx:id="durationTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                    <ImageView fx:id="agreementFormCustomerSingnatureImageView" fitHeight="50.0" fitWidth="200.0" onMouseClicked="#onCustomerSignetureImageSelected" pickOnBounds="true" smooth="false" GridPane.columnIndex="2" GridPane.rowIndex="3">
-                        <Image url="@../images/customer_signature.png" />
-                    </ImageView>
-               <Button fx:id="nextButton1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onAgreementFormNextButtonClick" text="Next" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-         <Label text=":" GridPane.columnIndex="1" />
-         <Label text=":" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-         <Label text=":" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-         <Label text="Signature" GridPane.rowIndex="3" />
-         <Label text=":" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-         <columnConstraints>
-            <ColumnConstraints />
-            <ColumnConstraints />
-            <ColumnConstraints />
-            <ColumnConstraints />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-         </rowConstraints>
-                </GridPane>
+    </Tab>
+    <Tab closable="false" text="Agreement Form">
+        <GridPane accessibleRole="TABLE_VIEW" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+            <Label text="Lessee ID" />
+            <Label text="Box Number" GridPane.rowIndex="1" />
+            <Label text="Duration" GridPane.rowIndex="2" />
+            <TextField fx:id="lesseeIDTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" GridPane.columnIndex="2" />
+            <TextField fx:id="boxNumberTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <TextField fx:id="durationTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <ImageView fx:id="agreementFormCustomerSingnatureImageView" fitHeight="50.0" fitWidth="200.0" onMouseClicked="#onCustomerSignetureImageSelected" pickOnBounds="true" smooth="false" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                <Image url="@../images/customer_signature.png" />
+            </ImageView>
+            <Button fx:id="nextButton1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onAgreementFormNextButtonClick" text="Next" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <Label text=":" GridPane.columnIndex="1" />
+            <Label text=":" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text=":" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Signature" GridPane.rowIndex="3" />
+            <Label text=":" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <columnConstraints>
+                <ColumnConstraints />
+                <ColumnConstraints />
+                <ColumnConstraints />
+                <ColumnConstraints />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+            </rowConstraints>
+        </GridPane>
 
-        </Tab>
-        <Tab text="Deputy Form">
-                <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+    </Tab>
+    <Tab text="Deputy Form">
+        <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
 
-                    <Label text="Name" />
-                    <Label text="Address" GridPane.rowIndex="1" />
-                    <Label text="Phone Number" GridPane.rowIndex="2" />
-                    <TextField fx:id="addressField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="371.0" GridPane.columnIndex="2"  GridPane.rowIndex="1" />
-                    <TextField fx:id="nameField" layoutX="140.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" GridPane.columnIndex="2" />
-                    <TextField fx:id="phoneField" layoutX="140.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="377.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-               <ImageView fx:id="deputyFormDeputySingnatureImageView" fitHeight="63.0" fitWidth="266.0" onMouseClicked="#onDeputySignetureImageSelected" pickOnBounds="true" smooth="false" GridPane.columnIndex="2" GridPane.rowIndex="3">
-                  <image>
-                     <Image url="@../images/nominee_signature.png" />
-                  </image>
-               </ImageView>
-               <Button fx:id="nextButton2" mnemonicParsing="false" onAction="#onNextButton2" prefHeight="25.0" prefWidth="95.0" text="Next" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-         <Label text=":" GridPane.columnIndex="1" />
-         <Label layoutX="131.0" layoutY="42.0" text=":" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-         <Label layoutX="131.0" layoutY="80.0" text=":" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-         <Label text="Deputy Signature" GridPane.rowIndex="3" />
-         <Label text=":" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                </GridPane>
-        </Tab>
-        <Tab text="Lease Agreement">
-            <VBox fx:id="tabLeaseeAgreement" maxHeight="-Infinity" maxWidth="-Infinity">
-                <TextFlow fx:id="attendeeSignatureImageView" lineSpacing="5.0" prefHeight="378.0" prefWidth="566.0" textAlignment="JUSTIFY">
-                    <Text fx:id="agrementText" text="-" wrappingWidth="52.94140625">
-                        <font>
-                            <Font size="14.0" />
-                        </font></Text>
-                    <padding>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                    </padding>
-                </TextFlow>
+            <Label text="Name" />
+            <Label text="Address" GridPane.rowIndex="1" />
+            <Label text="Phone Number" GridPane.rowIndex="2" />
+            <TextField fx:id="addressField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="371.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <TextField fx:id="nameField" layoutX="140.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" GridPane.columnIndex="2" />
+            <TextField fx:id="phoneField" layoutX="140.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="377.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <ImageView fx:id="deputyFormDeputySingnatureImageView" fitHeight="50.0" fitWidth="200.0" onMouseClicked="#onDeputySignetureImageSelected" pickOnBounds="true" smooth="false" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                <Image url="@../images/nominee_signature.png" />
+            </ImageView>
+            <Button fx:id="nextButton2" mnemonicParsing="false" onAction="#onNextButton2" prefHeight="25.0" prefWidth="95.0" text="Next" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <Label text=":" GridPane.columnIndex="1" />
+            <Label layoutX="131.0" layoutY="42.0" text=":" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label layoutX="131.0" layoutY="80.0" text=":" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Deputy Signature" GridPane.rowIndex="3" />
+            <Label text=":" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <columnConstraints>
+                <ColumnConstraints />
+                <ColumnConstraints />
+                <ColumnConstraints />
+                <ColumnConstraints />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+            </rowConstraints>
+        </GridPane>
+    </Tab>
+    <Tab text="Lease Agreement">
+        <GridPane fx:id="tabLeaseeAgreement" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+            <ImageView fx:id="agreementDocumentCustomerSingnatureImageView" fitHeight="50.0" fitWidth="200.0" GridPane.rowIndex="1">
+                <Image url="@../images/customer_signature.png" />
+            </ImageView>
+            <ImageView fx:id="agreementDocumentDeputySingnatureImageView" fitHeight="50.0" fitWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <Image url="@../images/nominee_signature.png" />
+            </ImageView>
+            <ImageView fx:id="attendeSignatureImageView" fitHeight="50.0" fitWidth="200.0" onMouseClicked="#onAttendeeSignetureImageSelected" pickOnBounds="true" smooth="false" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                <Image url="@../images/attandee_signature.png" />
+            </ImageView>
+            <Button fx:id="agreementTabconfirmButton" alignment="CENTER" mnemonicParsing="false" onAction="#onConfirmButtonClick" text="Confirm" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Text fx:id="agrementText"
+                  text="Lease Agreement between(Lessee) and Miami Bank (Lessor)for Safe Deposit Box             # + boxNo +  for the term of  + duration +  month, commencing on rentDate  and ending on  expireDate             Lessee agrees to pay Lessor  amount and to comply with all rules and regulations             of Lessor regarding the use of the Box. If additional persons are to have access              to the safe deposit box, a deputy must be appointed.The name of the deputy for this Box is deputyName +              and their signature is recorded below.Lessee acknowledges that the deputy has access to the Box.             Lessee acknowledges that Lessor shall not be liable for any loss or damage to the property stored in the Box.             Lessee agrees to indemnify and hold Lessor harmless from any and all claims,             damages, or expenses arising out of or in connection with Lessee's use of the Box.             This Agreement shall be governed by and construed in accordance with the laws of the state of Florida. " textAlignment="JUSTIFY" wrappingWidth="600" GridPane.columnSpan="3">
+                <font>
+                    <Font size="14.0" />
+                </font>
+            </Text>
+        </GridPane>
 
-                <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="91.0" prefWidth="595.0">
-                    <ImageView fx:id="agreementDocumentCustomerSingnatureImageView" fitHeight="61.0" fitWidth="141.0">
-                        <image>
-                            <Image url="@../images/customer_signature.png" />
-                        </image>
-                        <HBox.margin>
-                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                        </HBox.margin>
-                    </ImageView>
-                    <ImageView fx:id="agreementDocumentDeputySingnatureImageView" fitHeight="61.0" fitWidth="139.0">
-                        <image>
-                            <Image url="@../images/nominee_signature.png" />
-                        </image>
-                  <HBox.margin>
-                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                  </HBox.margin></ImageView>
-                    <ImageView fx:id="attendeSignatureImageView" fitHeight="63.0" fitWidth="139.0" onMouseClicked="#onAttendeeSignetureImageSelected" pickOnBounds="true" smooth="false">
-                        <HBox.margin>
-                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                        </HBox.margin>
-                        <Image url="@../images/attandee_signature.png" />
-                    </ImageView>
-               <Button fx:id="agreementTabconfirmButton" mnemonicParsing="false" onAction="#onConfirmButtonClick" prefHeight="41.0" prefWidth="106.0" text="Confirm">
-                  <HBox.margin>
-                     <Insets left="10.0" top="50.0" />
-                  </HBox.margin></Button>
-            <VBox.margin>
-               <Insets bottom="10.0" right="10.0" />
-            </VBox.margin>
-                </HBox>
-            </VBox>
 
-        </Tab>
-    </TabPane>
+    </Tab>
+</TabPane>
