@@ -27,10 +27,10 @@ Label {
 /* Style for the text fields */
 TextField {
  -fx-margin: 10 0 0 0; /* Set margin to 0 top, 0 right, 10 bottom, 0 left */
- -fx-pref-height: 30px;
-    -fx-pref-width: 300px;
+ -fx-pref-height: 40px;
+    -fx-pref-width: 200px;
       -fx-padding: 10px;
-    -fx-font-size: 14px; /* Set font size */
+   -fx-font-size: 12px;/* Set font size */
     -fx-prompt-text-fill: #a9a9a9; /* Set prompt text color */
     -fx-background-color: #fff; /* Set background color */
     -fx-border-width: 1px; /* Set border width */
@@ -41,7 +41,7 @@ TextField {
 }
 TextArea{
    -fx-margin: 10px;
-    -fx-font-size: 14px; /* Set font size */
+    -fx-font-size: 12px; /* Set font size */
     -fx-prompt-text-fill: #a9a9a9; /* Set prompt text color */
     -fx-background-color: #fff; /* Set background color */
     -fx-border-width: 1px; /* Set border width */
@@ -50,18 +50,7 @@ TextArea{
     -fx-font-family: "Roboto", sans-serif; /* Set font family */
     -fx-text-fill: #424242; /* Set text color */
 }
-ImageView {
 
-    -fx-translate-z: -10px;
- -fx-fit-height: 200px;
-    -fx-fit-width: 200px;
-    -fx-border-color: black;
-    -fx-border-width: 2px;
-    -fx-border-radius: 5px;
-    -fx-background-color: lightgray;
-    -fx-padding: 10px;
-    -fx-margin: 10px;
-}
 
 
 

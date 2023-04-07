@@ -16,12 +16,14 @@ public class Windows {
     private static final String LOGIN_LAYOUT = "/layout/login_layout.fxml";
     private static final String VISITATION = "/layout/visitation_card.fxml";
     private static final String CONTACT_TO_CUSTOMER = "/layout/contact_to_customer.fxml";
+    private static final String DASHBOARD = "/layout/dashboard.fxml";
     private Stage leaseAgreementWindow;
     private Stage viewWindow;
     private Stage visitationWindow;
     private Stage customerContactWindow;
     private Stage loginWindow;
     private Stage addAccountWindow;
+    private Stage dashboard;
 
     private Windows() {
         leaseAgreementWindow = getWindow(LEASE_AGREEMENT, "Lease Agreement", 600, 500);
@@ -30,6 +32,7 @@ public class Windows {
         customerContactWindow = getWindow(CONTACT_TO_CUSTOMER, "Contact to customer", 700, 500);
         loginWindow = getWindow(LOGIN_LAYOUT, "Login", 700, 300);
         addAccountWindow = getWindow(ADD_ACCOUNT, "Add Account", 800, 600);
+        dashboard = getWindow(DASHBOARD, "Dashboard", 500, 500);
     }
 
     private static Stage getWindow(String layout, String title, Integer minWidth, Integer minHeight) {
@@ -80,5 +83,7 @@ public class Windows {
         return loginWindow;
     }
 
-
+    public Stage dashboard() {
+        return dashboard;
+    }
 }
