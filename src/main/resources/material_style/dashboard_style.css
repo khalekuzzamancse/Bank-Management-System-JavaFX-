@@ -1,89 +1,47 @@
-        //CSS
+/* Style for the parent anchor pane */
+#parent {
+    -fx-background-color: #f2f2f2; /* Set background color */
+    -fx-alignment:center
+}
+
+/* Style for the grid pane */
+#container {
+    -fx-alignment: center; /* Center the grid pane */
+     -fx-background-color: #ABEBC6;
+    -fx-padding: 40px;
+    -fx-spacing: 10px;
+    -fx-alignment: center;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 5);
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+}
 
 
-        .root{
-        -fx-background-color:#EAEEF4;
-        }
 
-        .side_ankerpane{
-        -fx-background-color:#353A56;
-        -fx-border-width: 2px 2px 2px 2px;
-        -fx-border-radius: 20px;
-        -fx-background-radius: 20px;
-        -fx-border-style: solid;
-        }
-        .inner_pane{
-        -fx-background-color:#748CF1;
-        -fx-border-width: 2px 2px 2px 2px;
-        -fx-border-radius: 20px;
-        -fx-background-radius: 20px;
-        -fx-border-style: solid;
-        -fx-border-color: #748CF1;
 
-        }
-        .most_inner_pane{
-        -fx-background-color:#6780E2;
-        -fx-border-width: 2px 2px 2px 2px;
-        -fx-border-radius: 20px;
-        -fx-background-radius: 20px;
-        -fx-border-style: solid;
-        -fx-border-color: #748CF1;
-        }
 
-        #btn_workbench{
-        -fx-background-color:#141313;
-        -fx-border-width: 2px 2px 2px 2px;
-        -fx-border-radius: 50px;
-        -fx-background-radius: 50px;
-        -fx-border-style: solid;
-        -fx-border-color: #141313;
-        }
-        .btn_workbench11{
-        -fx-background-color:#353A56;
-        -fx-border-width: 2px 2px 2px 2px;
-        -fx-border-radius: 50px;
-        -fx-background-radius: 50px;
-        -fx-border-style: solid;
-        -fx-border-color: #353A56;
-        }
-        .pane_1{
-        -fx-background-color:#748CF1;
-        -fx-border-width: 2px 2px 2px 2px;
-        -fx-border-radius: 20px;
-        -fx-background-radius: 20px;
-        -fx-border-style: solid;
-        -fx-border-color: #748CF1;
-        }
-        .progress{
-        -fx-background-color:#ffffff;
-        -fx-border-width: 2px 2px 2px 2px;
-        -fx-border-radius: 16px;
-        -fx-background-radius: 16px;
-        -fx-border-style: solid;
-        -fx-border-color: #ffffff;
-        }
-        .pane_11{
-        -fx-background-color:#ffffff;
-        -fx-border-width: 2px 2px 2px 2px;
-        -fx-border-radius: 16px;
-        -fx-background-radius: 16px;
-        -fx-border-style: solid;
-        -fx-border-color: #ffffff;
-        }
-        .pane_111{
-        -fx-background-color:#FD9999;
-        -fx-border-width: 2px 2px 2px 2px;
-        -fx-border-radius: 16px;
-        -fx-background-radius: 16px;
-        -fx-border-style: solid;
-        -fx-border-color: #FD9999;
 
-        }
-        .pane_1111{
-        -fx-background-color:#353A56;
-        -fx-border-width: 2px 2px 2px 2px;
-        -fx-border-radius: 16px;
-        -fx-background-radius: 16px;
-        -fx-border-style: solid;
-        -fx-border-color: #353A56;
-        }
+/* Style for the login button */
+Button {
+ -fx-background-radius: 60px;
+  -fx-min-width: 180px;
+  -fx-min-height: 40px;
+  -fx-max-width: 200px;
+  -fx-max-height: 40px;
+    -fx-pref-height: 40px;
+    -fx-pref-width: 180px;
+    -fx-font-size: 15px; /* Set font size */
+    -fx-font-weight: bold; /* Set font weight */
+    -fx-background-color:#9B59B6; /* Set background color */
+    -fx-text-fill: #fff; /* Set text color */
+    -fx-border-width: 0; /* Remove border */
+    -fx-border-radius: 5px; /* Round corners */
+    -fx-padding: 10px 20px; /* Set padding */
+    -fx-font-family: "Roboto", sans-serif; /* Set font family */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1); /* Add elevation */
+}
+
+/* Style for the login button on hover */
+Button:hover {
+    -fx-background-color: #005b7f; /* Set background color */
+}

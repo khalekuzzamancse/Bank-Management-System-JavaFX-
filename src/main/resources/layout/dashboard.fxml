@@ -7,35 +7,33 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-          minWidth="-Infinity" prefHeight="287.0" prefWidth="504.0" xmlns="http://javafx.com/javafx/19"
-          fx:controller="com.example.bankmangement.controller.DashboardController"
-          xmlns:fx="http://javafx.com/fxml/1">
-    <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="244.0" prefWidth="101.0" GridPane.rowIndex="2">
-        <Button fx:id="addAccountButton"  onAction="#onAddAccount"
-                maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" text="Add Account">
+<GridPane fx:id="container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="287.0" prefWidth="504.0" stylesheets="@../material_style/dashboard_style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bankmangement.controller.DashboardController">
+    <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="244.0" prefWidth="101.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+        <Button fx:id="addAccountButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onAddAccount" text="Add Account">
          <VBox.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
          </VBox.margin></Button>
-        <Button fx:id="leaseButton"  onAction="#onLease" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" text="Lease">
+        <Button fx:id="leaseButton" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onLease" text="Lease">
          <VBox.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
          </VBox.margin></Button>
-        <Button fx:id="contactButton" onAction="#onContact" layoutX="10.0" layoutY="35.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" text="Contact">
+        <Button fx:id="contactButton" layoutX="10.0" layoutY="35.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onContact" text="Contact">
          <VBox.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
          </VBox.margin></Button>
-        <Button fx:id="visitationButton" onAction="#onVisitation" layoutX="10.0" layoutY="60.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" text="Visitation">
+        <Button fx:id="visitationButton" layoutX="10.0" layoutY="60.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onVisitation" text="Visitation">
          <VBox.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
          </VBox.margin></Button>
-        <Button fx:id="viewInfoButton" onAction="#onViewInfo" layoutX="10.0" layoutY="85.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" text="View Info">
+        <Button fx:id="viewInfoButton" layoutX="10.0" layoutY="85.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onViewInfo" text="View Info">
          <VBox.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
          </VBox.margin></Button>
     </VBox>
    <columnConstraints>
       <ColumnConstraints maxWidth="371.0" minWidth="103.0" prefWidth="105.0" />
+      <ColumnConstraints maxWidth="371.0" minWidth="13.0" prefWidth="42.0" />
+      <ColumnConstraints maxWidth="371.0" minWidth="103.0" prefWidth="164.0" />
       <ColumnConstraints maxWidth="586.0" minWidth="10.0" prefWidth="279.0" />
       <ColumnConstraints maxWidth="473.0" minWidth="10.0" prefWidth="473.0" />
    </columnConstraints>

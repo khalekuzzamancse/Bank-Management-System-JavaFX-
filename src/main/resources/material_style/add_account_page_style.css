@@ -8,7 +8,7 @@
  GridPane{
 -fx-hgap:5;
 -fx-vgap:5;
-    -fx-background-color: #fff; /* Set background color */
+    -fx-background-color: #DC7633; /* Set background color */
     -fx-padding: 40px;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 5);
     -fx-border-radius: 10px;
@@ -19,7 +19,7 @@
 Label {
     -fx-font-size: 14px; /* Set font size */
     -fx-font-weight: bold; /* Set font weight */
-    -fx-text-fill: #424242; /* Set text color */
+    -fx-text-fill: #F4F6F6; /* Set text color */
     -fx-font-family: "Roboto", sans-serif; /* Set font family */
 }
 

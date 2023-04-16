@@ -7,7 +7,7 @@
  GridPane{
 -fx-hgap:5;
 -fx-vgap:5;
-    -fx-background-color: #fff; /* Set background color */
+-fx-background-color: #EAFAF1;
     -fx-padding: 40px;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 5);
     -fx-border-radius: 10px;

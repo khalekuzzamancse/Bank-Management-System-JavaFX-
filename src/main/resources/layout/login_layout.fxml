@@ -28,9 +28,12 @@
         </rowConstraints>
         <Label prefHeight="24.0" prefWidth="106.0" text="User Name" />
         <Label prefHeight="29.0" prefWidth="302.0" text="Password" GridPane.rowIndex="2" />
-        <TextField fx:id="usernameField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="" GridPane.columnIndex="2" GridPane.columnSpan="3">
+        <TextField fx:id="usernameField" maxHeight="-Infinity"
+                   maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="admin" GridPane.columnIndex="2" GridPane.columnSpan="3">
         </TextField>
-        <PasswordField fx:id="passwordField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="145.0" text="" GridPane.columnIndex="2" GridPane.columnSpan="3" GridPane.rowIndex="2" />
+        <PasswordField fx:id="passwordField" maxHeight="-Infinity"
+                       maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="145.0"
+                       text="admin" GridPane.columnIndex="2" GridPane.columnSpan="3" GridPane.rowIndex="2" />
         <Button fx:id="loginButton"
                 alignment="CENTER" maxHeight="-Infinity"
                 maxWidth="-Infinity" minHeight="-Infinity"

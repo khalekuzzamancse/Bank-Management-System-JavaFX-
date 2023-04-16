@@ -1,6 +1,6 @@
 /* Style for the parent anchor pane */
-#parent {
-    -fx-background-color: #f2f2f2; /* Set background color */
+#tabPane {
+ -fx-background-color: #EAFAF1;
     -fx-alignment:center
 }
 
@@ -8,7 +8,7 @@
  GridPane{
 -fx-hgap:5;
 -fx-vgap:5;
-    -fx-background-color: #fff; /* Set background color */
+
     -fx-padding: 40px;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 5);
     -fx-border-radius: 10px;

@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.layout.GridPane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,6 +17,7 @@ public class DashboardController implements Initializable {
     public Button contactButton;
     public Button visitationButton;
     public Button viewInfoButton;
+    public GridPane container;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
