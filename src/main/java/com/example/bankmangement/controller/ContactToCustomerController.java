@@ -54,6 +54,7 @@ public class ContactToCustomerController implements Initializable {
         if (customer != null) {
             System.out.println(subject + "\n" + message);
             AlertUtil.showAlert("Customer Name: " + customer.getName() + "\n" + "Email: " + customer.getEmail());
+            new SendMailUtil().send(customer.getEmail(), subject, message);
         } else {
             AlertUtil.showAlert("Customer not found");
         }

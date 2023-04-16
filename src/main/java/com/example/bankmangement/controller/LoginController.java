@@ -1,5 +1,6 @@
 package com.example.bankmangement.controller;
 
+import com.example.bankmangement.Windows;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -28,9 +29,15 @@ public class LoginController implements Initializable {
     @FXML
     private GridPane container;
 
+    @FXML
     private void handleLogin(ActionEvent event) {
         String username = usernameField.getText();
         String password = passwordField.getText();
+        if(username.equals("admin")&&password.equals("admin")){
+            Windows.getInstance().loginWindow().hide();
+            Windows.getInstance().dashboard().show();
+        }
+
         System.out.println(username + "," + password);
     }
 

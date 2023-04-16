@@ -22,7 +22,7 @@ public class ExpireUserUtil {
 
         List<Customer> customerList = Fao.read(TableName.CUSTOMER_TABLE);
         List<Lease> leaseList = Fao.read(TableName.LEASE_TABLE);
-        String expireDate="2023-08-31";
+        String expireDate=DateTimeUtils.geDateFromToday(1);
       //  String expireDate = DateTimeUtils.geDateFromToday(1);
         // Filter leases with given expire date and map to ExpireUser
         List<ExpireUser> expireUserList = leaseList.stream()

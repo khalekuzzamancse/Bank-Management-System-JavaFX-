@@ -323,6 +323,7 @@ public class LeaseAgreementFormController implements Initializable {
             customerSignature = image;
             agreementFormCustomerSingnatureImageView.setImage(image);
             agreementDocumentCustomerSingnatureImageView.setImage(image);
+            System.out.println(selectedFile.toURI());
         }
     }
 

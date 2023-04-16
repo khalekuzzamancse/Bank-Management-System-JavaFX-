@@ -60,18 +60,22 @@ public class Windows {
     }
 
     public Stage leaseAgreementWindow() {
+        leaseAgreementWindow = getWindow(LEASE_AGREEMENT, "Lease Agreement", 600, 500);
         return leaseAgreementWindow;
     }
 
     public Stage infoViewWindow() {
+        viewWindow = getWindow(VIWES, "View Info", 1100, 300);
         return viewWindow;
     }
 
     public Stage visitationWindow() {
+        visitationWindow = getWindow(VISITATION, "Visitation", 700, 500);
         return visitationWindow;
     }
 
     public Stage customerContactWindow() {
+        customerContactWindow = getWindow(CONTACT_TO_CUSTOMER, "Contact to customer", 700, 500);
         return customerContactWindow;
     }
 
@@ -80,6 +84,7 @@ public class Windows {
     }
 
     public Stage loginWindow() {
+
         return loginWindow;
     }
 

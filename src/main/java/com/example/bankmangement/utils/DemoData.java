@@ -48,7 +48,7 @@ public class DemoData {
 
     public static void addCustomer() {
         Customer customer1 = new Customer("John Doe", "johndoe@example.com", "555-555-5555", "ABC Company",
-                "123 Main St", "Brown", "Black", "6'2\"", "180 lbs", 1000.0);
+                "123 com.example.bankmangement.Main St", "Brown", "Black", "6'2\"", "180 lbs", 1000.0);
         Fao.write(TableName.CUSTOMER_TABLE, customer1);
         Customer customer2 = new Customer("Jane Smith", "janesmith@example.com", "555-555-5556", "XYZ Corporation",
                 "456 Elm St", "Blue", "Blonde", "5'7\"", "150 lbs", 2500.0);
